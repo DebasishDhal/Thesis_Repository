@@ -1,3 +1,5 @@
+#This function takes in one INSAT-3DR 1B-IMAGER file, one CloudSat 2b-CLDCLASS and after plotting them, asks permission for collocation, if given, it produces a collocated file consisting of radiometric data and cloud data.
+
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
@@ -19,9 +21,10 @@ import geopy
 
 print("All imports successful")
 
-insatfilepath = r'/data/debasish/insatdata/l1b/2017/jan2017/day01/3RIMG_01JAN2017_0345_L1B_STD_V01R00.h5'
-csatfilepath= r'/data/debasish/cloudsatdata/cldclasslidar/2017/2017jan/001/2017001025110_56810_CS_2B-CLDCLASS-LIDAR_GRANULE_P1_R05_E06_F01.hdf'
+insatfilepath = r'/data/debasish/insatdata/l1b/2017/jan2017/day01/3RIMG_01JAN2017_0345_L1B_STD_V01R00.h5' #Adress of a single INSAT-3DR 1B-IMAGER h5 file.
+csatfilepath= r'/data/debasish/cloudsatdata/cldclasslidar/2017/2017jan/001/2017001025110_56810_CS_2B-CLDCLASS-LIDAR_GRANULE_P1_R05_E06_F01.hdf' #Adress of a single CloudSat 2B-CLDCLASS hdf file.
 
+#To plot the CloudSat orbit of this file. Helps us to choose the correct INSAT-3DR file for the task.
 def groundtrackplotter(pathorfile,c='r', timestamp=True, passedaxis=None, baseimage=True, text=None, s=0.51,linewidths=0.51,arrow=True,arrow_color='black',arrow_width=0.0001,arrow_head_width=5,arrow_head_length=5
 ,time_label=True, time_label_color='black',time_label_fontsize=10,rotation=80, time_label_count=3):
     if type(pathorfile)==str:
@@ -45,7 +48,7 @@ def groundtrackplotter(pathorfile,c='r', timestamp=True, passedaxis=None, baseim
         return datasetlist
 
     longitude,latitude=oneddata(['Longitude','Latitude'])
-#    fig=plt.figure(figsize=(10,10))
+
     if passedaxis==None:
         ax=plt.axes(projection=ccrs.PlateCarree())
     else:
@@ -55,7 +58,6 @@ def groundtrackplotter(pathorfile,c='r', timestamp=True, passedaxis=None, baseim
         ax.stock_img()
     #Make gridlines color black
     ax.gridlines(color='black', alpha=0.5, linestyle='--')
-#    ax.gridlines()
     ax.set_xticks(np.arange(-180, 180, 10), crs=ccrs.PlateCarree())
     ax.set_xticklabels(ax.get_xticks(), rotation=-90)
     ax.set_yticks(np.arange(-90, 90, 30), crs=ccrs.PlateCarree())
@@ -85,7 +87,6 @@ def groundtrackplotter(pathorfile,c='r', timestamp=True, passedaxis=None, baseim
                 ax.text(longitude[i]-6,latitude[i]-1,profile_time_utc[i],transform=ccrs.PlateCarree(),color=time_label_color,fontsize=time_label_fontsize,
                 rotation=np.rad2deg(np.arctan((latitude[i+5]-latitude[i])/(longitude[i+5]-longitude[i]))))
 
-            #ax.scatter(longitude[-1],latitude[-1],transform=ccrs.PlateCarree(),color=time_label_color,s=10)
             ax.text(longitude[-1],latitude[-1],profile_time_utc[-1],transform=ccrs.PlateCarree(),color=time_label_color,fontsize=time_label_fontsize,
             rotation=np.rad2deg(np.arctan((latitude[-1-5]-latitude[-1])/(longitude[-1-5]-longitude[-1]))))
     #Get the data about date and time of the file from the filename
@@ -141,10 +142,9 @@ ax=groundtrackplotter(csatfilepath,passedaxis=ax,time_label_count=8,time_label_c
 
 plt.show()
 
-permission = input("Press c to continue else exit")
+permission = input("Press c to proceed to collocate, anything  else to exit")
 
 #Use this permission to execute the function below
-
 def insatcsatcollocation(insatfilepath, csatfilepath):
 
 
