@@ -1,4 +1,4 @@
-# Thesis_Repository
+# Thesis Summary
 This repository consists of codes I wrote for my MSc thesis work
 
 collocations folder contains collocation code for INSAT-3DR 1B-IMAGER and CloudSat 2B-CLDCLASS data. The goal is to collocate pixels close by spatially and temporally, 
@@ -10,9 +10,22 @@ The goal of the collocation process is to generate a dataset which has radiometr
 
 Our goal is to use the radiometric data to predict the cloud-parameters, i.e. Cloudy/Clear (Whether a pixel has clouds or not), Cloud top height and Total Cloud thickness over a pixel of area 4km * 4km.
 
-## Cloud/Clear Model
+## Cloud/Clear Classification Model
 
 - Day-time model to predict cloudy/clear classification has an overall accuracy of 79.84%, which predicts 71.06% of all clear pixels and 84.95% of the cloudy pixels correctly.
 - Night-time model to predict cloudy/clear classification has an overall accuracy of 78.90%, which predicts 73.48% of all clear pixels and 82.18% of the cloudy pixels correctly.
+- Our models are compared with the classification produced by IMD. We cross-checked the classifications of IMD against the observed readings from CloudSat.
+- It was found that IMD cloudy/clear classificaion has an overall accuracy of 77.18%, with an accuracy of 74% with clear pixels and 79% with cloudy pixels.
 
-- 
+## Cloud top height Regression Model
+
+- Only the Infrared channels of INSAT-3DR (dependent only on the Earth's thermal radiation) were used in this model, so that it can be used both during day and night.
+- The model shows a $r^2$ value of 0.95 with a mean squared error of 1.10km in the test set.
+- Using this model, it was found that the average global cloud top height is in the range 2-3 km throughout the year
+- The TIR1 channel (10.3-11.3 $\mu$m) of INSAT-3DR has the highest importance in the model (69.05).
+
+## Cloud total thickness Regression Model
+
+- All the channels of INSAT-3DR except Water Vapor channel were employed in the the model. However, it can be employed in the night time as well, since the XGBoost model is accomodative to NaN values. In addition, the infrared channels carry the bulk of the importance in the model, so it's safe to rely only on them in the night time.
+- The model shows a $r^2$ value of 0.90 with a mean squared error of 0.99km on the test set.
+- In this model, the TIR2 channel carries the highest importance in the model (63.60%).
