@@ -22,10 +22,10 @@ Our goal is to use the radiometric data to predict the cloud-parameters, i.e. Cl
 - Only the Infrared channels of INSAT-3DR (dependent only on the Earth's thermal radiation) were used in this model, so that it can be used both during day and night.
 - The model shows a $r^2$ value of 0.95 with a mean squared error of 1.10km in the test set.
 - Using this model, it was found that the average global cloud top height is in the range 2-3 km throughout the year
-- The TIR1 channel (10.3-11.3 $\mu$m) of INSAT-3DR has the highest importance in the model (69.05).
+- The TIR1 channel (10.3-11.3 μm) of INSAT-3DR has the highest importance in the model (69.05).
 
 ## Cloud total thickness Regression Model
 
 - All the channels of INSAT-3DR except Water Vapor channel were employed in the the model. However, it can be employed in the night time as well, since the XGBoost model is accomodative to NaN values. In addition, the infrared channels carry the bulk of the importance in the model, so it's safe to rely only on them in the night time.
 - The model shows a $r^2$ value of 0.90 with a mean squared error of 0.99km on the test set.
-- In this model, the TIR2 channel carries the highest importance in the model (63.60%).
+- In this model, the TIR2 (11.5-12.5 μm) channel carries the highest importance in the model (63.60%).
