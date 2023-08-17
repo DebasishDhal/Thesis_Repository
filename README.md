@@ -12,7 +12,7 @@ INSAT-3DR produces full-disk image of the Indian side of hte globe, every half a
 INSAT-3DR, like all satellites that employ passive scanning, do not measure any meteorological parameter directly, they just measure the radiometric data that is incident on them. It is our job ot retrieve useful meteorological properties from the reading.
 
 ## Solution 
-CloudSat satellite (a polar satellite), a NASA-operated satellite dedicated for observations of clouds, measures all the cloud-properties that we want to retrieve from INSAT-3DR. The cloud related data was colloacted against the radiometric readings from INSAT-3DR, the resulting data was fed into ML algorightms (XGBoost, Random Forest and 
+CloudSat satellite (a polar satellite), a NASA-operated satellite dedicated for observations of clouds, measures all the cloud-properties that we want to retrieve from INSAT-3DR. The cloud related data was colloacted against the radiometric readings from INSAT-3DR, the resulting data was fed into ML algorightms (XGBoost and Random Forest)
 
 ## Collocation process
 Collocations folder contains collocation code for INSAT-3DR 1B-IMAGER and CloudSat 2B-CLDCLASS data. The goal is to collocate pixels close by spatially and temporally, 
@@ -22,7 +22,7 @@ In the first 2 cells, the permission to collocate was denied, while it was grant
 
 The goal of the collocation process is to generate a dataset which has radiometric data and the correponding cloud-related data. The cloud-related data includes (No. of separate cloud layers, their top and base height, type). Thus it gives us relation between radiometric data and cloud-related data.
 
-Our goal is to use the radiometric data to predict the cloud-parameters, i.e. Cloudy/Clear (Whether a pixel has clouds or not), Cloud top height and Total Cloud thickness over a pixel of area 4km * 4km.
+Our goal is to use the radiometric data to predict the cloud-parameters, i.e. Cloudy/Clear (Whether a pixel has clouds or not), Cloud top height and Total Cloud thickness over a pixel of area 4km × 4km.
 
 ## Cloud/Clear Classification Model
 
