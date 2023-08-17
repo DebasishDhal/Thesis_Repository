@@ -43,3 +43,16 @@ Our goal is to use the radiometric data to predict the cloud-parameters, i.e. Cl
 - All the channels of INSAT-3DR except Water Vapor channel were employed in the the model. However, it can be employed in the night time as well, since the XGBoost model is accomodative to NaN values. In addition, the infrared channels carry the bulk of the importance in the model, so it's safe to rely only on them in the night time.
 - The model shows a $r^2$ value of 0.90 with a mean squared error of 0.99km on the test set.
 - In this model, the TIR2 (11.5-12.5 μm) channel carries the highest importance in the model (63.60%).
+
+## CloudSat only results 
+We took all the 2B-CLDCLASS data from CloudSat for the year 2013 and analyzed it. Below are the findings : -
+
+- Oceans are more likely to be cloudy as compared to land. Over the year, around 78% of oceanic pixels and 62.9% of land pixels were found to be cloudy. This inequality in cloud cover was found to be consistent throughout the year.
+- The cloud top height (averaged over the globe) is in the order Cirrus ≈ Deep
+Convective > Altostratus > Cumulus > Altocumulus > Stratocumulus ≈ Cumulus ≈ Stratus cloud. Deep convective clouds are the thickest, and Stratus clouds are the thinnest of all cloud types.
+- For most practical purposes, there are at most five distinct cloud layers in any given atmospheric layer. More than five distinct cloud layers are extremely rare in nature.
+- The distribution of different cloud types is a function of latitude. Cirrus is the most dominating type of cloud over the tropics and the Indian region, while Altostratus and Stratocumulus dominate in the polar regions. On the other hand, Stratus clouds are almost absent over the Indian region.
+
+(Note that the CloudSat orbit scans only a very tiny section of the atmosphere at a time. We have assumed that taking a large number (a full year) of observed data points will get us an image that is resembles the true nature of earth's atmosphere).
+
+
