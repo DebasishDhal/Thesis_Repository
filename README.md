@@ -1,7 +1,21 @@
-# Thesis Summary
+# Retrieval of Earth's Atmospheric Properties using INSAT-3DR satellite data
 This repository consists of codes I wrote for my MSc thesis work
 
-collocations folder contains collocation code for INSAT-3DR 1B-IMAGER and CloudSat 2B-CLDCLASS data. The goal is to collocate pixels close by spatially and temporally, 
+## AIM
+### 1) To predict cloud properties using the readings from INSAT-3DR geostationary satellite. <br>
+### 2) To study clouds based on the readings of CloudSat.
+
+## Motivation
+INSAT-3DR produces full-disk image of the Indian side of hte globe, every half an hour with a resolution of 1km, 4km and 8km. If we are succesful, we can have new new full-disk maps of cloud properties every half an hour.
+
+## Challenge
+INSAT-3DR, like all satellites that employ passive scanning, do not measure any meteorological parameter directly, they just measure the radiometric data that is incident on them. It is our job ot retrieve useful meteorological properties from the reading.
+
+## Solution 
+CloudSat satellite (a polar satellite), a NASA-operated satellite dedicated for observations of clouds, measures all the cloud-properties that we want to retrieve from INSAT-3DR. The cloud related data was colloacted against the radiometric readings from INSAT-3DR, the resulting data was fed into ML algorightms (XGBoost, Random Forest and 
+
+## Collocation process
+Collocations folder contains collocation code for INSAT-3DR 1B-IMAGER and CloudSat 2B-CLDCLASS data. The goal is to collocate pixels close by spatially and temporally, 
 and collect radiometric information about the pixel from INSAT-3DR file and cloud related data from CloudSat file. I've included codes to collocate one file at a time
 and files of entire day at a time (fully automated). In the examples, there's an example notebook, 3 cells are present there, each containing code for single file collocation.
 In the first 2 cells, the permission to collocate was denied, while it was granted in the 3rd cell. This process has been fully automated in the fulldaycollocation code. For an entire day it takes around 40-120 hours. 
