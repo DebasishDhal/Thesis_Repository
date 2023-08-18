@@ -3,7 +3,7 @@ This repository consists of codes I wrote for my MSc thesis work
 
 ## AIM
 ### 1) To predict cloud properties using the readings from INSAT-3DR geostationary satellite. <br>
-### 2) To study clouds based on the readings of CloudSat.
+### 2) To study clouds based on the data of CloudSat.
 
 ## Motivation
 INSAT-3DR produces full-disk image of the Indian side of hte globe, every half an hour with a resolution of 1km, 4km and 8km. If we are succesful, we can have new new full-disk maps of cloud properties every half an hour.
@@ -43,6 +43,7 @@ Our goal is to use the radiometric data to predict the cloud-parameters, i.e. Cl
 - All the channels of INSAT-3DR except Water Vapor channel were employed in the the model. However, it can be employed in the night time as well, since the XGBoost model is accomodative to NaN values. In addition, the infrared channels carry the bulk of the importance in the model, so it's safe to rely only on them in the night time.
 - The model shows a $r^2$ value of 0.90 with a mean squared error of 0.99km on the test set.
 - In this model, the TIR2 (11.5-12.5 μm) channel carries the highest importance in the model (63.60%).
+- Here, we are not considering the optical depth of clouds, since it was not included in the 2B-CLDCLASS file. We suspect that this contributes the most to the error.
 
 ## CloudSat only results 
 We took all the 2B-CLDCLASS data from CloudSat for the year 2013 and analyzed it. Below are the findings : -
