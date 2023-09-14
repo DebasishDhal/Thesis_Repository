@@ -30,6 +30,7 @@ Our goal is to use the radiometric data to predict the cloud-parameters, i.e. Cl
 - Night-time model to predict cloudy/clear classification has an overall accuracy of 78.90%, which predicts 73.48% of all clear pixels and 82.18% of the cloudy pixels correctly.
 - Our models are compared with the classification produced by IMD. We cross-checked the classifications of IMD against the observed readings from CloudSat.
 - It was found that IMD cloudy/clear classificaion has an overall accuracy of 77.18%, with an accuracy of 74% with clear pixels and 79% with cloudy pixels.
+ ![image](https://github.com/DebasishDhal/Thesis_Repository/assets/31160148/f3910a26-e154-4a48-916e-9d12faba611d)
 
 ## Cloud top height Regression Model
 
@@ -37,6 +38,7 @@ Our goal is to use the radiometric data to predict the cloud-parameters, i.e. Cl
 - The model shows a $r^2$ value of 0.95 with a mean squared error of 1.10km in the test set.
 - Using this model, it was found that the average global cloud top height is in the range 2-3 km throughout the year
 - The TIR1 channel (10.3-11.3 μm) of INSAT-3DR has the highest importance in the model (69.05).
+ ![image](https://github.com/DebasishDhal/Thesis_Repository/assets/31160148/c6da8900-76fb-4e8b-bb0c-7f862da816d6)
 
 ## Cloud total thickness Regression Model
 
@@ -45,14 +47,21 @@ Our goal is to use the radiometric data to predict the cloud-parameters, i.e. Cl
 - In this model, the TIR2 (11.5-12.5 μm) channel carries the highest importance in the model (63.60%).
 - Here, we are not considering the optical depth of clouds, since it was not included in the 2B-CLDCLASS file. We suspect that this contributes the most to the error.
 
+ ![image](https://github.com/DebasishDhal/Thesis_Repository/assets/31160148/dcfe2475-2c2f-43d9-9533-c84374d4fa08)
+
 ## CloudSat only results 
 We took all the 2B-CLDCLASS data from CloudSat for the year 2013 and analyzed it. Below are the findings : -
 
 - Oceans are more likely to be cloudy as compared to land. Over the year, around 78% of oceanic pixels and 62.9% of land pixels were found to be cloudy. This inequality in cloud cover was found to be consistent throughout the year.
+ ![image](https://github.com/DebasishDhal/Thesis_Repository/assets/31160148/c337c6be-32f9-45f6-8f39-50059e6454e3)
+
 - The cloud top height (averaged over the globe) is in the order Cirrus ≈ Deep
 Convective > Altostratus > Cumulus > Altocumulus > Stratocumulus ≈ Cumulus ≈ Stratus cloud. Deep convective clouds are the thickest, and Stratus clouds are the thinnest of all cloud types.
+![image](https://github.com/DebasishDhal/Thesis_Repository/assets/31160148/de19cfdd-cc2f-4e2e-93a6-260500357bf7)
+
 - For most practical purposes, there are at most five distinct cloud layers in any given atmospheric layer. More than five distinct cloud layers are extremely rare in nature.
 - The distribution of different cloud types is a function of latitude. Cirrus is the most dominating type of cloud over the tropics and the Indian region, while Altostratus and Stratocumulus dominate in the polar regions. On the other hand, Stratus clouds are almost absent over the Indian region.
+![image](https://github.com/DebasishDhal/Thesis_Repository/assets/31160148/78599f8a-d075-4e37-9c45-3d8d4996ec24)
 
 (Note that the CloudSat orbit scans only a very tiny section of the atmosphere at a time. We have assumed that taking a large number (a full year) of observed data points will get us an image that is resembles the true nature of earth's atmosphere).
 
