@@ -1,5 +1,10 @@
 #This function takes in one INSAT-3DR 1B-IMAGER file, one CloudSat 2b-CLDCLASS and after plotting them, asks permission for collocation, if given, it produces a collocated file consisting of radiometric data and cloud data.
 
+#WARNING - This code below doesn't collocate SWIR channel (my mistake). It can be added by adding 2-3 extra lines to this code. (Prepare the SWIR array, collect the collocated SWIR value and make a SWIR column in the csv file)
+#WARNING - This is for a single CLOUDSAT and INSAT-3DR file. It's not efficient if you want to use this for collocating a month worth of data. For that check singledaycollocation.py which collocates one day of data in one go.
+#WARNING - This doesn't take care of datetime automatically (i.e. it will collocate CLOUDSAT file of today and INSAT-3DR file of yesterday if fed as input). The user is presented a map and asked permission to proceed, the map has all the necessary information.
+# All this has been automated in singledaycollocation file.
+
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
