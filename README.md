@@ -32,7 +32,7 @@ Our goal is to use the radiometric data to predict the cloud-parameters, i.e. Cl
 - It was found that IMD cloudy/clear classificaion has an overall accuracy of 77.18%, with an accuracy of 74% with clear pixels and 79% with cloudy pixels.
 
 <p align="center">
-  <img src="results/collocated-results/cloudy-or-clear/01jan2019_0615_modeloutputcmkboth.png" alt="Our Cloudy/Clear Model vs IMD Cloudy/Clear Model">
+  <img src="results/collocated-results/cloudy-or-clear/01jan2019_0015_modeloutputcmkboth.png" alt="Our Cloudy/Clear Model vs IMD Cloudy/Clear Model">
 </p>
 
 ## Cloud top height Regression Model
