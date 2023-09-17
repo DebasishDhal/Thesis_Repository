@@ -1,3 +1,9 @@
+#For a given single day, this script takes all the IMD Cloud-Mask files of that day and collocates it with all the CloudSat 2B-CLDCLASS files of that day. 
+#It's a scaled up version of a script where a single IMD Cloud-Mask file is collocated against one or two CloudSat file(s).
+#IMD Cloud-Mask comes in a resolution of 4 km, thus the array size if 2816 × 2805.
+#This is relatively faster as compared to the main collocation, since we are searching across a 2816 × 2805 array, and not across a 11264 × 11220 array.
+
+#In this file, we're doing the Cloud-Mask collocation for january 1, 2017. 
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
