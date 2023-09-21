@@ -1,6 +1,8 @@
-This folder contains the codes for collocation. Collocation here is defined as collecting radiometric data from INSAT-3DR and cloud-properties data from CloudSat, with a certain tolerable
+This folder contains the codes for collocation. For the most part, collocation here is defined as collecting radiometric data from INSAT-3DR and cloud-properties data from CloudSat, with a certain tolerable
 temporal and spatial offset. The temporal offset is 30 minutes and the spatial offset is 1 km in this case. In fact, the maximum spatial offset is reduced to 0.55 km through filtering, while using
-the data.
+the data. 
+
+The same logic has also been used to collocate Cloud-Mask produced by Indian Meteorological Department with the cloud-properties data from CloudSat. This particular step is for validation of Cloud-Mask from IMD.
 
 # Contents
 
