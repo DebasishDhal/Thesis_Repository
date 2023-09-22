@@ -11,3 +11,10 @@ while in the winter solstice, it is centered over the southern hemisphere.
   <p align= "center">
    <img src= "../../miscellaneous/images/Allchannelsplot.png" alt = "Distribution of different cloud types as a function of Latitude">
 </p>
+
+- Radiance and Brightness temperature plot for Fani cyclone. It's evident how the cyclone has a cooler brightness temperature, since the clouds present in the cyclone are at a higher altitude than its sorroundings.
+
+<p align="center">
+  <img src="../../miscellaneous/images/Fani radiance plot.png" width="45%" alt="Image 1">
+  <img src="../../miscellaneous/images/Fani BT plot.png" width="45%" alt="Image 2">
+</p>
