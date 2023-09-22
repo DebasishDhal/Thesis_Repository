@@ -6,7 +6,13 @@ The same logic has also been used to collocate Cloud-Mask produced by Indian Met
 
 # Contents
 
-- Collocation code for single file and single day. The single file takes one CloudSat file and one INSAT-3DR file, produces a map with all the necessar information and asks the user the permission to collocate.
+- Collocation code for single file and single day. The single file takes one CloudSat file and one INSAT-3DR file, produces a map with all the necessary information and asks the user the permission to collocate. Such an image is provided below.
+
+<p align= "center">
+  <img src="../cloudsatorbit/Actual photo used in collocation INSAT cloudsat combined.png" alt="">
+</p>
+
+  
 This is laborious, hence, it has been automated in the single day file. It takes all CloudSat and INSAT-3DR files for one day and does the collocation for all the combinations that match the collocation criteria.
 
 - CMK collocation. CMK is short for Cloud Mask. We have CMK files from IMD (Indian Meteorological Department). In order to compare our model's performance with IMD, we need to compare the CMK produced by IMD with CloudSat readings.
