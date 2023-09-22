@@ -6,7 +6,7 @@ The same logic has also been used to collocate Cloud-Mask produced by Indian Met
 
 # Contents
 
-- Collocation code for single file and single day. The single file takes one CloudSat file and one INSAT-3DR file, produces a map with all the necessary information and asks the user the permission to collocate. Such an image is provided below.
+- Collocation code for single file and single day. The single file takes one CloudSat file and one INSAT-3DR file, produces a map with all the necessary information and asks the user the permission to collocate. Such an image is provided below. In the image below, both the CloudSat and INSAT-3DR files are from the same date. Notice that there is a temporal and spatial overlap between both the coverage area of both the files from 0815 hours till 0841 hours, in between the area from Antarctica till western India. Thus, we can go ahead for the collocation with this combination of files.
 
 <p align= "center">
   <img src="../cloudsatorbit/Actual photo used in collocation INSAT cloudsat combined.png" alt="">
