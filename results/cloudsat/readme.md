@@ -15,7 +15,7 @@ inequality in cloud cover was found to be consistent throughout the year.
 ## Cloud height distribution
 - Please check the photos done of the cloud mean top-height, mean base-height and mean thickness in the folder above.
 - The analysis has been done on different cloud types separetly. We're considering 8 distinct cloud types here.
-
+- In addition, a time-series graph has also been provided to track the change in cloud height over the months.
 
 Below are some of the findings of the analysis:
 
@@ -25,6 +25,7 @@ Below are some of the findings of the analysis:
 
 <p align= "center">
   <img src= "cloudheight/fullyearcloudheight.png" alt = "Top height, Base height and Mean thickness of different cloud types">
+  <img src= "cloudheight/cloudheoghttimeserieslogscale.png" alt = "Top height, Base height and Mean thickness of different cloud types">
 </p>
 
 ## Cloud type distribution
