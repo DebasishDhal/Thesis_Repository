@@ -15,12 +15,12 @@ INSAT-3DR, like all satellites that employ passive scanning, does not measure an
 **How to retrieve cloud properties from radiometric data?**
 
 ## Solution 
-CloudSat satellite (a polar satellite), a NASA-operated satellite dedicated for observations of clouds, measures all the cloud-properties that we want to retrieve. CloudSat is a polar satellite, it means CloudSat orbits around earth, scanning the section of the atmosphere below it (instantenous pixel size is approximately 1.3 km × 1.7 km). So, we have full-disk radiometric data from INSAT-3DR and cloud-related data from CloudSat concentrated on thin lines along the CloudSat orbits. This is shown in the image below, where for a given day all the CloudSat orbits are shown superimposed with the INSAT-3DR coverage area.
+CloudSat, a NASA-operated polar satellite dedicated for observations of clouds, measures all the cloud-properties that we want to retrieve. CloudSat is a polar satellite, it means CloudSat orbits around earth, scanning the section of the atmosphere below it (instantenous pixel size is approximately 1.3 km × 1.7 km). So, we have full-disk radiometric data from INSAT-3DR and cloud-related data from CloudSat concentrated on thin lines along the CloudSat orbits. This is shown in the image below, where for a given day all the CloudSat orbits are shown superimposed with the INSAT-3DR coverage area.
 <p align="center">
   <img src="cloudsatorbit/Multi orbit groundtrack with INSAT3DR.png" alt="Multiple CloudSat orbits superimposed on INSAT-3DR coverage area.">
 </p>
 
-The cloud-related data from CloudSat was collocated against the radiometric readings from INSAT-3DR.  This gives us a dataset which related the radiometric data with the equivalent cloud property. For example, a cloudy pixel will have less brightness temperature and higher albedo as compared to a clear pixel. The resulting combined data was fed into ML algorigthms (XGBoost and Random Forest), to produce models that can predict cloudy/clear classificaiton, cloud top height and cloud total height from INSAT-3DR radiometric data alone.
+The cloud-related data from CloudSat was collocated against the radiometric readings from INSAT-3DR.  This gives us a dataset which related the radiometric data with the equivalent cloud property. For example, a cloudy pixel will have a smaller brightness temperature and higher albedo, as compared to a clear pixel. The resulting combined data was fed into ML algorigthms (XGBoost and Random Forest), to produce models that can predict cloudy/clear classificaiton, cloud top height and cloud total height from INSAT-3DR radiometric data alone.
 
 ## Collocation process
 Collocations folder contains collocation codes for INSAT-3DR 1B-IMAGER and CloudSat 2B-CLDCLASS data. The goal is to collocate pixels from both satellites that are spatially and temporally close by, and collect radiometric data of the pixel from INSAT-3DR file and cloud related data from the CloudSat file. I've included codes to collocate one file at a time and files of entire day at a time (fully automated). In the examples, there's an example notebook, 3 cells are present there, each containing code for single file collocation. In the first 2 cells, the permission to collocate was denied, while it was granted in the 3rd cell. This process has been fully automated in the fulldaycollocation code. For an entire day it takes around 40-120 hours. 
@@ -87,7 +87,9 @@ Convective > Altostratus > Cumulus > Altocumulus > Stratocumulus ≈ Cumulus ≈
    <img src= "results/cloudsat/cloudtypedistribution/fullyearcloudtypemap.png" alt = "Distribution of different cloud types as a function of Latitude">
 </p>
 
-(Note that the CloudSat orbit scans only a very tiny section of the atmosphere at a time. We have assumed that taking a large number (a full year) of observed data points will get us an image that is resembles the true nature of earth's atmosphere).
+**Note 1** - The CloudSat orbit scans only a very tiny section of the atmosphere at a time. We have assumed that taking a large number (a full year) of observed data points will get us an image that is resembles the true nature of earth's atmosphere.
+
+**Note 2** - Visit the folders to get more information from their own readme files
 
 # Tech Stack
 - Python, Fortran
