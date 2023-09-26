@@ -17,7 +17,7 @@ Below is a short description of how the CloudSat orbits around the Earth and how
   <img src="CloudsatGroundtrack26Apr2019.jpg" alt="Cloudsat single orbit">
 </p>
 
-- Visualization of the total cloud thickness, as measured by CloudSat, in a single orbit.
+- Visualization of the total cloud thickness, as measured by CloudSat, in a single orbit. The highest total cloud thickness is observed near the equator, which is expected, since the atmosphere is the thickest near the equator.
   
 <p align= "center">
   <img src="Total cloud thickness sample result.jpg" alt="Total cloud thickness plot">
@@ -26,6 +26,11 @@ Below is a short description of how the CloudSat orbits around the Earth and how
 - 3D visualization of all CloudSat orbit of a given single day. 
 <p align= "center">
   <img src="Groundtrack cloudsat.jpg" alt="Cloudsat orbit 3D">
+</p>
+
+- Two CloudSat orbits shown, along with timestamps. All times are in GMT. The timestamps show us where the CloudSat was at what time. This is important while doing the collocation process manually. 
+<p align= "center">
+  <img src="cloudsat_groundtrack_with_timestamps.png" alt="">
 </p>
 
 - All orbits of CloudSat for one day, in a 2D projection.
