@@ -9,11 +9,10 @@ This repository consists of codes I wrote for my MSc thesis work.
 ## Motivation
 INSAT-3DR produces full-disk image of the Indian side of the globe, every half an hour with a resolution of 1km, 4km and 8km, depending on the channel [(example)](https://github.com/DebasishDhal/Thesis_Repository/blob/main/miscellaneous/images/Allchannelsplot.png). This is the just the radiometric data. In order to retrieve cloud-properties from it, it needs to be processed. If we are succesful in retrieving cloud-properties from INSAT-3DR radiometric data, we can have new full-disk maps of cloud-properties every half an hour. By cloud-properties , I refer to Cloudy/Clear classification, Cloud top height and Cloud total thickness regression. Cloud top height is the top height of the uppermost cloud layer and cloud total thickness is the sum of thickness of all cloud layers present over an area.
 
-## Challenge
+## Challenge - How to retrieve cloud properties from radiometric data?
 INSAT-3DR, like all satellites that employ passive scanning, does not measure any meteorological parameter directly. The emitted/reflected photons on its sensors are measured in terms of counts. It is our job to retrieve useful meteorological properties from the radiometric readings(or counts). 
 
-## How to retrieve cloud properties from radiometric data?
-
+## Solution
 CloudSat, a NASA-operated polar satellite dedicated for observations of clouds, measures all the cloud-properties that we want to retrieve. This makes our task simple and complicated at the same time, but that's a start. CloudSat is a polar satellite, it means CloudSat orbits around earth, scanning the section of the atmosphere below it (instantenous pixel size is approximately 1.3 km × 1.7 km). So, we have full-disk radiometric data from INSAT-3DR and cloud-related data from CloudSat concentrated on thin lines along the CloudSat orbits. This is shown in the image below, where for a given day all the CloudSat orbits are shown superimposed with the INSAT-3DR coverage area.
 <p align="center">
   <img src="cloudsatorbit/Multi orbit groundtrack with INSAT3DR.png" alt="Multiple CloudSat orbits superimposed on INSAT-3DR coverage area.">
