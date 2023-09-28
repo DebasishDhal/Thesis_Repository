@@ -38,11 +38,20 @@ Below is a short description of how the CloudSat orbits around the Earth and how
   <img src="Multi orbit groundtrack.png" alt="Many cloudsat orbits at once">
 </p>
 
+- A single orbit of CloudSat, superimposed with INSAT-3DR coverage area. (Preliminary version)
+<p align= "center">
+  <img src="../miscellaneous/images/download.png" alt="Many cloudsat orbits at once">
+</p>
+
+
 - All orbits of CloudSat for one day, along with start time and INSAT-3DR satellite's coverage area.
 <p align= "center">
   <img src="Multi orbit groundtrack with INSAT3DR with start time.png" alt="Cloudsat orbit with insat coverage and start time">
 </p>
-    
+
+- Below is a distribution of latitude and longitude of datapoints scanned by CloudSat in the month of January, 2019. This is to show that the scanning is not always so uniformly distributed.
+![image](https://github.com/DebasishDhal/Thesis_Repository/assets/31160148/38c3885d-cd23-41b8-a4b6-6594da7b1c2b)
+
 # Scanning
 
 - Visulization of how CloudSat scans the Earth's atmosphere. In one orbit, it scans the atmosphere 37,088 time. Each scan is of an area 1.1 km (along the orbit) × 1.7 km (across the orbit).
