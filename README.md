@@ -31,6 +31,15 @@ The goal of the collocation process is to generate a dataset which has radiometr
 
 Our goal is to use the radiometric data to retrieve the cloud-parameters, i.e. Cloudy/Clear (Whether a pixel has clouds or not), Cloud top height and Total Cloud thickness over the Indian side of the globe, with a pixel size of 4km × 4km.
 
+The final dataset looks something like this: -
+<p align="center">
+  <img src="miscellaneous/images/dataset_example.jpg" alt="">
+</p>
+
+Although in our final dataset, we have added more features into it, like details of individual cloud layers, albedo, short wave infrared radiance readings etc.
+
+
+
 ## Cloud/Clear Classification Model
 
 - Day-time model to predict cloudy/clear classification has an overall accuracy of 79.84%, which predicts 71.06% of all clear pixels and 84.95% of the cloudy pixels correctly.
