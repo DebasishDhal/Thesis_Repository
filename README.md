@@ -1,5 +1,5 @@
 # Title - Retrieval of Earth's Atmospheric Properties using INSAT-3DR satellite data
-This repository consists of codes I wrote for my MSc thesis work. 
+This repository consists of codes written by me for my MSc thesis work titled "**Retrieval of Earth's atmospheric properties using INSAT-3DR satellite data**".
 
 
 ## AIM
@@ -36,7 +36,7 @@ The final dataset looks something like this: -
   <img src="miscellaneous/images/dataset_example.jpg" alt="">
 </p>
 
-Although in our final dataset, we have added more features into it, like details of individual cloud layers, albedo, short wave infrared radiance readings etc.
+The image above is the first version of our collocated dataset. In our final dataset, we have added more features into it, like details of individual cloud layers, albedo, short wave infrared radiance readings etc.
 
 
 
