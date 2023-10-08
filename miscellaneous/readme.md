@@ -1,6 +1,6 @@
 Mostly consists of files and images that were involved in the thesis but were not too important, or they don't fall to any of the categories in the root directory.
 
-- Satellite elevation angle of INSAT-3DR, mapped. An elevation angle of 90 degrees indicate that the satellite is overhead.
+- Satellite elevation angle of INSAT-3DR, mapped. An elevation angle of 90 degrees indicates that the satellite is overhead. This distribution of satellite elevaiton angle stays fixed, since INSAT-3DR is a geostationary satellite. 
 <p align= "center">
   <img src="insat3dr_satellite_elevation_angle.png" alt="">
 </p>
@@ -10,7 +10,7 @@ Mostly consists of files and images that were involved in the thesis but were no
   <img src="insat3dr_satellite_azimuth_angle.png" alt="">
 </p>
 
-- Population of different cloud types as captured by CloudSat during one orbit. Since this is just for one orbit, it's heavily prone to selection bias. This is just for observation and learning. Cirrus is the most dominant form of cloud with Deep Convective being the least.
+- Population of different cloud types, as captured by CloudSat during one orbit. Since this is just for one orbit, it's heavily prone to selection bias. This is just for observation and learning. Cirrus is the most common form of cloud with Deep Convective being the least common.
 
 <p align= "center">
   <img src="images/cloud_type_population_bargraph.png" alt="">
