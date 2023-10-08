@@ -98,6 +98,7 @@ Convective > Altostratus > Cumulus > Altocumulus > Stratocumulus ≈ Cumulus ≈
 
 **Note 2** - Visit the folders to get more information from their own readme files.
 
+Thanks to [MOSDAC](https://www.mosdac.gov.in/) and [CLOUDSAT](https://www.cloudsat.cira.colostate.edu/) for providing the data.
 # Tech Stack
 - Python, Fortran
 - Machine Learning
