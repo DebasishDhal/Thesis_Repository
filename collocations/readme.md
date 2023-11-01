@@ -23,3 +23,20 @@ Below is the flowchart of the collocation code.
 For this, collocating CMK files against CloudSat readings is required.
 
 - SWIR retrival is an error-correction folder. During our main collocation process, I had forgotten to include the SWIR channel in the collocation. Hence, the resulting dataset did not contain any SWIR data. To rectify this, a short script was prepared which will append the SWIR channel data to the dataset. This is more of an array operation as compared to collocation and hence quicker. It took us around one week to be done with this part, where the main collocation took me around 1.5 months.
+
+# Demo
+
+Let's consider a CloudSat file which has just three profiles, with coordinates (-30,80), (0,75) and (30,70). 
+
+-  For each of these coordinates, we find the nearest INSAT-3DR pixel using the formula by first finding out the closes index, then using the index to find out the nearest coordinates
+   - distance_array = |csat_lat - insat_lat_array| + |csat_lon - insat_lon_array| (|| denotes absolute value)
+   - min_distance = min(|csat_lat - insat_lat_array| + |csat_lon - insat_lon_array|)
+   - nearest_index = index_of_min_distance in the array distance_array
+   - nearest_insat_lat = insat_lat_array[nearest_index]
+   - nearest_insat_lon = insat_lon_array[nearest_index]
+- For the given three CloudSat coordinates, the approximate value for the closest INSAT-3DR pixel can be given as: -
+   - (-30,80) => (-29.96,80.05)
+   - (0,75) => (0.02, 75.01)
+   - (30,70) => (30.01,70.03)
+
+For implementation in code, please see line [324,328] (both included) of the code in this [link](https://github.com/DebasishDhal/Thesis_Repository/blob/main/collocations/singlefilecollocation.py#L324).
