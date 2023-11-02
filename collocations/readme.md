@@ -38,5 +38,7 @@ Let's consider a CloudSat file which has just three profiles, with coordinates (
    - (-30,80) => (-29.96,80.05)
    - (0,75) => (0.02, 75.01)
    - (30,70) => (30.01,70.03)
+     
+**Note**: - 1 degree of latitude or longitude represents approximately 110km of distance on Earth's surface. So, (0,75), (0.05, 75.05) might look like these two points are very close to one another, but these two points are 6 km apart frome each other. A lot can change within a distance of 6 km of distance. So, it's best to compute the distance and not just go with our general instinct.
 
 For implementation in code, please see line [324,328] (both included) of the code in this [link](https://github.com/DebasishDhal/Thesis_Repository/blob/main/collocations/singlefilecollocation.py#L324).
