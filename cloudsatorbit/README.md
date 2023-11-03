@@ -54,15 +54,13 @@ Below is a short description of how the CloudSat orbits around the Earth and how
 
 # Scanning
 
-- Visulization of how CloudSat scans the Earth's atmosphere. In one orbit, it scans the atmosphere 37,088 time. Each scan is of an area 1.1 km (along the orbit) × 1.7 km (across the orbit).
-  Vertically, each scan spans an area from the Earth's surface till 30 km of altitude. Each scan is divided into 125 bins, with each bin being 240 m thick. (Photo taken from ccplot manual)
+- Visulization of how CloudSat scans the Earth's atmosphere. In one orbit, it scans the atmosphere 37,088 times. Each scan/profile is of an area 1.1 km (along the orbit) × 1.7 km (across the orbit).
+  Vertically, each scan/profile spans an area from the Earth's surface (0 km) till 30 km of altitude. Each scan/profile is divided into 125 bins, with each bin being 240 m thick. (Photo taken from [ccplot manual](https://ccplot.org/pub/resources/CloudSat/CloudSat%20Data%20Users%20Handbook.pdf))
 <p align= "center">
   <img src="Cloudsat scan.jpg" alt="How cloudsat scans">
 </p>
 
-
 Codes can be found here 
 
 https://github.com/DebasishDhal/Thesis_Repository/blob/main/miscellaneous/csatdatareading.pdf 
-
-It's in pdf form as in notebook form, it's more than 25MB. 
+ 
