@@ -1,5 +1,16 @@
 #Input -  Adress of L1B file of INSAT-3DR. Output is cloud top height map produced by our model. In addition, it also returns a dataframe consisting of latitude, longitude, estimated cloud top height.
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+import h5py
+import pickle
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+import datetime
+from cartopy.feature.nightshade import Nightshade
 def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade='Yes'):
     assert os.path.isfile(insatfilepath)
 
