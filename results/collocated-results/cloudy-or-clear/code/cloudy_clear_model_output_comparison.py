@@ -1,6 +1,21 @@
 #This function takes one INSAT-3DR L1B file, and its corresnponding cloud mask file produced by IMD. The output is a comparison of output of both the models.
 #This is to compare the cloudy/clear map produced by our model with the cloudy/clear map provided by Indian Meteorological Department. Many such outputs have been shown the the cloudy-or-clear folder.
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+import h5py
+import pickle
+import cartopy.crs as ccrs
+import cartopy.feature as cfeature
+import matplotlib
+import datetime
+from cartopy.feature.nightshade import Nightshade
+import matplotlib.colors as mcolors
+cmap = mcolors.ListedColormap(['gray', 'white'])
+
 def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1):
 
     #fig, ax = plt.subplots(2, 1, figsize=(10, 15))
