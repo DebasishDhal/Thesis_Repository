@@ -163,4 +163,5 @@ def cloudthicknessplotter(insatfilepath,extent=-1):
 
 #Example given below
 
-cloudthicknessplotter(insatfilepath = r'/data/debasish/insatdata/l1b/2019/2019jan/day01/3RIMG_01JAN2019_0315_L1B_STD_V01R00.h5')
+cloudthicknessplotter(insatfilepath = r'/data/debasish/insatdata/l1b/2019/2019jan/day01/3RIMG_01JAN2019_0315_L1B_STD_V01R00.h5') 
+#The output of this particular file is given here - https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/collocated-results/cloud-total-thickness/01Jan2019_0315.png
