@@ -10,6 +10,12 @@ Mostly consists of files and images that were involved in the thesis but were no
   <img src="insat3dr_satellite_azimuth_angle.png" alt="">
 </p>
 
+- Distribution of cloud top height and cloud bottom height. Time period - Whole year of 2013. Region - Global.
+
+<p align= "center">
+  <img src="image.png" alt="">
+</p>
+
 - Population of different cloud types, as captured by CloudSat during one orbit. Since this is just for one orbit, it's heavily prone to selection bias. This is just for observation and learning. Cirrus is the most common form of cloud with Deep Convective being the least common.
 
 <p align= "center">
