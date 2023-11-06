@@ -129,4 +129,5 @@ def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade
 #Example given below
 
 insatcloudheightprediction(insatfilepath=r'/data/debasish/insatdata/l1b/2019/2019jan/day01/3RIMG_01JAN2019_0315_L1B_STD_V01R00.h5');
+#The output of this particular file is at https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/collocated-results/cloud-top-height/01JAN2019_0315.png
 
