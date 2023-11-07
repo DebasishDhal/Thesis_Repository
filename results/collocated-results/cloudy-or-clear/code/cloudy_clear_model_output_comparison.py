@@ -16,10 +16,7 @@ from cartopy.feature.nightshade import Nightshade
 import matplotlib.colors as mcolors
 cmap = mcolors.ListedColormap(['gray', 'white'])
 
-def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1):
-
-    #fig, ax = plt.subplots(2, 1, figsize=(10, 15))
-    #plt.show()
+def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1): #extent is to check the number of points you want to plot. It has some 6M points in total, starting from Northern part of Russia.
 
     os.path.exists(insatfilepath), "INSAT-1B file does not exist"
     os.path.exists(cmkfilepath), "CMK file does not exist"
@@ -38,7 +35,7 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1):
     acqstart = str(insatfile.attrs['Acquisition_Start_Time'])[2:-1].split('T')[1]
     acqend = str(insatfile.attrs['Acquisition_End_Time'])[2:-1].split('T')[1]
 
-    def count2bt(count,lut):
+    def count2bt(count,lut): #To convert counts to brightness temperature using look up table.
         bt = lut[count]
         return bt
 
@@ -83,17 +80,18 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1):
     satelevationarray[satelevationarray == fillvalue] = np.nan
     print("File read successfully")
 
-    swirraddown = swirrad[::4,::4]
+    swirraddown = swirrad[::4,::4] #Downscaling SWIR and VIS files by a fourth. These files (with resolution of 1 km) are exactly 4 × 4 of the size of TIR1, TIR2 and MIR files (res. = 4 km). 
     albedodown = visalbedo[::4,::4]
 
     print("Data being prepared for prediction")
+    
     dffullfile = pd.DataFrame({'albedo':albedodown.flatten(),'swirrad':swirraddown.flatten(),
                            'btmir':mirbt.flatten(),'bttir1':tir1bt.flatten(),'bttir2':tir2bt.flatten(),
                            'solarelevation':solarelevationarray.flatten(),'satelevation':satelevationarray.flatten(),
                            'longitude':longitudearray.flatten(),'latitude':latitudearray.flatten()})
 
     dffullfile.dropna(inplace=True)
-    dfday = dffullfile[dffullfile['solarelevation'] > 0]
+    dfday = dffullfile[dffullfile['solarelevation'] > 0] #This is because we've separate models for day and night time. Since, at night time, visible and swir channels don't work.
     dfnight = dffullfile[dffullfile['solarelevation'] <= 0]
 
     dfdayfinal = dfday[['albedo','swirrad','btmir','bttir1','bttir2','solarelevation']]
@@ -101,7 +99,7 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1):
 
     print("Data prepared for prediction, predicting now")
   
-    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/y79acc8d2msl5mss150est/trainscaler.pkl'
+    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/y79acc8d2msl5mss150est/trainscaler.pkl' #Loading our daytime cloudy/clear classification model and its scaler
     modeladress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/y79acc8d2msl5mss150est/randomforestclassifier.pkl'
  
     import joblib
@@ -111,10 +109,9 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1):
     model = joblib.load(modeladress)
 
     dfdayscaled = scaler.transform(dfdayfinal)
-
     dayprediction = model.predict(dfdayscaled)
 
-    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/ironlywithsatelevation/trainscaler.pkl'
+    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/ironlywithsatelevation/trainscaler.pkl' #Loading our nighttime cloudy/clear classification model and its scaler
     modeladress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/ironlywithsatelevation/randomforestclassifier.pkl'
 
     scaler = joblib.load(scaleradress)
@@ -135,7 +132,7 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1):
     print("Predicted dataframe shape is {}".format(dfpredictioncombined.shape))
     cmap = mcolors.ListedColormap(['gray', 'white'])
 
-
+    #Below section is for datetime.
 
     year_insat  = int(insatdate[-4:])
     month_abbreviation_insat = insatdate[2:5]
@@ -169,9 +166,7 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1):
     print("Plotting")
 
     fig = plt.figure(figsize=(10,15),dpi=300)
-    # title = fig.suptitle('INSAT-3DR cloud mask and our cloud mask comparison',fontsize=14,fontweight='bold',y = 0.98)
-    # title.set_ha("center")
-
+    
     ax1 = plt.subplot(2,1,1,projection = ccrs.PlateCarree())
     ax2 = plt.subplot(2,1,2,projection = ccrs.PlateCarree())
 
