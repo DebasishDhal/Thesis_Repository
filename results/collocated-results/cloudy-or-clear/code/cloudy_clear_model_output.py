@@ -13,9 +13,10 @@ import matplotlib
 import datetime
 from cartopy.feature.nightshade import Nightshade
 import matplotlib.colors as mcolors
-cmap = mcolors.ListedColormap(['gray', 'white'])
 
-def model_output_func(insatfilepath, extent = -1):
+cmap = mcolors.ListedColormap(['gray', 'white']) #gray is for clear sky, white is for cloudy sky
+
+def model_output_func(insatfilepath, extent = -1):  
     insatfile = h5py.File(insatfilepath,'r')
 
     longitudearray = np.array(insatfile['Longitude'])/100
@@ -95,7 +96,7 @@ def model_output_func(insatfilepath, extent = -1):
     dfdayfinal = dfday[['albedo','swirrad','btmir','bttir1','bttir2','solarelevation']]
     dfnightfinal = dfnight[['btmir','bttir1','bttir2','satelevation']]
 
-    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/y79acc8d2msl5mss150est/trainscaler.pkl'
+    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/y79acc8d2msl5mss150est/trainscaler.pkl' #Loading daytime model with its scaler
     modeladress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/y79acc8d2msl5mss150est/randomforestclassifier.pkl'
     import joblib
     import pickle
@@ -107,7 +108,7 @@ def model_output_func(insatfilepath, extent = -1):
 
     dayprediction = model.predict(dfdayscaled)
 
-    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/ironlywithsatelevation/trainscaler.pkl'
+    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/ironlywithsatelevation/trainscaler.pkl' #Loading nighttime model with its scaler
     modeladress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/ironlywithsatelevation/randomforestclassifier.pkl'
 
     scaler = joblib.load(scaleradress)
@@ -129,9 +130,9 @@ def model_output_func(insatfilepath, extent = -1):
     fig = plt.figure(figsize=(10,8))
     cmap = mcolors.ListedColormap(['gray', 'white'])
     print("Plotting")
+
     ax = plt.axes(projection=ccrs.PlateCarree())
-    #plot = plt.scatter(dfday['longitude'][0:extent].values,dfday['latitude'][0:extent].values,c = dfday['prediction'][0:extent],cmap='jet_r',norm=matplotlib.colors.Normalize(vmin=0, vmax=1),transform=ccrs.PlateCarree(),s=0.01)
-    #plot = plt.scatter(dfnight['longitude'][0:extent].values,dfnight['latitude'][0:extent].values,c = dfnight['prediction'][0:extent],cmap='jet_r',norm=matplotlib.colors.Normalize(vmin=0, vmax=1),transform=ccrs.PlateCarree(),s=0.01)
+    
     plot = plt.scatter(dfpredictioncombined['longitude'][0:extent].values,
                     dfpredictioncombined['latitude'][0:extent].values,
                     c = dfpredictioncombined['prediction'][0:extent],
@@ -168,5 +169,5 @@ def model_output_func(insatfilepath, extent = -1):
 
     return dfpredictioncombined
 
-
-trialdataset = model_output_func(r'/data/debasish/insatdata/l1b/2019/2019jan/day01/3RIMG_01JAN2019_0315_L1B_STD_V01R00.h5',extent = -1)
+#Example given below
+trialdataset = model_output_func(r'/data/debasish/insatdata/l1b/2019/2019jan/day01/3RIMG_01JAN2019_0315_L1B_STD_V01R00.h5',extent = -1);
