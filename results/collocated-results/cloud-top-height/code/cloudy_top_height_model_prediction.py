@@ -1,4 +1,5 @@
 #Input -  Adress of L1B file of INSAT-3DR. Output is cloud top height map produced by our model. In addition, it also returns a dataframe consisting of latitude, longitude, estimated cloud top height.
+#cloud-top-height model is a XGBoost model, it relies on thermal-infrared channels only, which are valid during both day and night time.
 
 import pandas as pd
 import numpy as np
@@ -11,15 +12,18 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import datetime
 from cartopy.feature.nightshade import Nightshade
-def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade='Yes'):
-    assert os.path.isfile(insatfilepath)
 
+def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade='Yes'): 
+
+    #File reading
+    assert os.path.isfile(insatfilepath)
     insatfile = h5py.File(insatfilepath,'r')
 
     def count2bt(count,lut):
         bt = lut[count]
         return bt
 
+    #Converting counts to useful parameters like albedo, radiance and brightness temperature.
     tir1count = np.array(insatfile['IMG_TIR1'])[0,:,:]
     fillvalue = insatfile['IMG_TIR1'].attrs['_FillValue'][0]
     tir1lut = np.array(insatfile['IMG_TIR1_TEMP'])
@@ -44,6 +48,7 @@ def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade
     latitudearray[latitudearray == fillvalue] = np.nan
     longitudearray[longitudearray == fillvalue] = np.nan
 
+    #Final dataframe that will be fed to the model to predict cloud top height.
     dfirdata = pd.DataFrame(
                 {'btmir': mirbt.flatten(),
                 'bttir1': tir1bt.flatten(),
@@ -54,6 +59,7 @@ def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade
             )
     dfirdata.dropna(inplace=True)
 
+    #Loading the XGBoost model and its scaler
     scalaradress =r"/data/debasish/cloudetectionmodels/cloudtopheightmodel/untunedxgboost/trainscaler.pkl"
     modeladress = r"/data/debasish/cloudetectionmodels/cloudtopheightmodel/untunedxgboost/xgboostcloudtopheightuntunedironly.pkl"
 
@@ -62,20 +68,22 @@ def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade
 
     with open(modeladress, 'rb') as file:
         model = pickle.load(file)
-
+        
+    #Scaling the data
     dfirdatascaled = scaler.transform(dfirdata[['btmir','bttir1','bttir2','insatcorvislat']])
     print(dfirdatascaled.shape)
 
     heighprediction = model.predict(dfirdatascaled)
     dfirdata['heightprediction'] = heighprediction
     
-    extent = extent
+    extent = extent 
 
     fig = plt.figure(figsize=(10,8))
     ax = plt.axes(projection=ccrs.PlateCarree())
 
-    dfirdata[dfirdata['heightprediction']<0] = np.nan
+    dfirdata[dfirdata['heightprediction']<0] = np.nan #Elminating bogus predictions like negative cloud height. 
 
+    #Plotting
     plot = plt.scatter(
                         dfirdata['insatcorvislon'][0:extent],
                         dfirdata['insatcorvislat'][0:extent],
@@ -84,7 +92,7 @@ def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade
                         transform=ccrs.PlateCarree(),
                         s=0.05
                         )
-    
+    #Setting up plot boundary, coastlines etc.
     ax.set_global()
     ax.coastlines()
     ax.gridlines()
@@ -97,7 +105,7 @@ def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade
     ax.set_yticks(np.arange(-90,90,10),crs=ccrs.PlateCarree())
     plt.grid(True)
 
-
+    #Datetime reading
     insatdate = str(insatfile.attrs['Acquisition_Date'])[2:-1]
     insattime = str(insatfile.attrs['Acquisition_Time_in_GMT'])[2:-1]
     acqstart = str(insatfile.attrs['Acquisition_Start_Time'])[2:-1].split('T')[1]
@@ -127,7 +135,7 @@ def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade
     return dfirdata
 
 #Example given below
-
 insatcloudheightprediction(insatfilepath=r'/data/debasish/insatdata/l1b/2019/2019jan/day01/3RIMG_01JAN2019_0315_L1B_STD_V01R00.h5');
+
 #The output of this particular file is at https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/collocated-results/cloud-top-height/01JAN2019_0315.png
 
