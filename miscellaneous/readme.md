@@ -1,6 +1,6 @@
 Mostly consists of files and images that were involved in the thesis but were not too important, or they don't fall to any of the categories in the root directory.
 
-- Satellite elevation angle of INSAT-3DR, mapped. An elevation angle of 90 degrees indicates that the satellite is overhead. This distribution of satellite elevaiton angle stays fixed, since INSAT-3DR is a geostationary satellite. 
+- Satellite elevation angle of INSAT-3DR, mapped. An elevation angle of 90 degrees indicates that the satellite is overhead. This distribution of satellite elevation angle stays fixed, since INSAT-3DR is a geostationary satellite. 
 <p align= "center">
   <img src="insat3dr_satellite_elevation_angle.png" alt="">
 </p>
