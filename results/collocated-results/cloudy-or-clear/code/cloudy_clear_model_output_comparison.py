@@ -21,6 +21,7 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1): #exte
     os.path.exists(insatfilepath), "INSAT-1B file does not exist"
     os.path.exists(cmkfilepath), "CMK file does not exist"
 
+    #File reading
     insatfile = h5py.File(insatfilepath,'r')
     cmkfile = h5py.File(cmkfilepath,'r')
     
@@ -84,7 +85,8 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1): #exte
     albedodown = visalbedo[::4,::4]
 
     print("Data being prepared for prediction")
-    
+
+    #Preparing the dataframe for prediction using our models.
     dffullfile = pd.DataFrame({'albedo':albedodown.flatten(),'swirrad':swirraddown.flatten(),
                            'btmir':mirbt.flatten(),'bttir1':tir1bt.flatten(),'bttir2':tir2bt.flatten(),
                            'solarelevation':solarelevationarray.flatten(),'satelevation':satelevationarray.flatten(),
@@ -171,6 +173,7 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1): #exte
     ax2 = plt.subplot(2,1,2,projection = ccrs.PlateCarree())
 
     cmap = mcolors.ListedColormap(['gray', 'white'])
+    #Plotting
     plot1 = ax1.scatter(dfpredictioncombined['longitude'][0:extent].values,
                     dfpredictioncombined['latitude'][0:extent].values,
                     c = dfpredictioncombined['prediction'][0:extent],
