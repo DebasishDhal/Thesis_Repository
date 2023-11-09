@@ -19,6 +19,7 @@ def cloudthicknessplotter(insatfilepath,extent=-1):
     assert os.path.exists(insatfilepath), "File does not exist"
     insatfile = h5py.File(insatfilepath,'r')
 
+    #Converting counts to useful parameters like brightness temperature, radiance and albedo
     def count2bt(count,lut):
         bt = lut[count]
         return bt
@@ -54,7 +55,7 @@ def cloudthicknessplotter(insatfilepath,extent=-1):
     mirbt = count2bt(mircount,mirlut)
     mirbt[mircount == fillvalue] = np.nan
 
-
+    #Reading the latitude, longitude, satellite elevation with their fill values
     longitudearray = np.array(insatfile['Longitude'])/100
     latitudearray = np.array(insatfile['Latitude'])/100
     fillvalue = insatfile['Longitude'].attrs['_FillValue'][0]/100
@@ -72,10 +73,11 @@ def cloudthicknessplotter(insatfilepath,extent=-1):
     acqend = str(insatfile.attrs['Acquisition_End_Time'])[2:-1].split('T')[1]
     print(acqend)
 
-    albedodownsized = albedoarray[::4,::4]
+    #Downscaling of arrays with a resolution of 1 km, so that they can used together with arrays with a resolution of 4 km. 
+    albedodownsized = albedoarray[::4,::4] Taking every 4th value into consideration
     swirraddownsized = swirradarray[::4,::4]
 
-
+    #Preparing dataframe for predicition
     dffullfile = pd.DataFrame({
                             'albedo':albedodownsized.flatten(),
                             'swirrad':swirraddownsized.flatten(),
@@ -88,10 +90,9 @@ def cloudthicknessplotter(insatfilepath,extent=-1):
                         })
 
     #Drop nan values for satelevation, btmir, bttir1, bttir2
-
     dffullfile = dffullfile.dropna(subset=['satelevation','btmir','bttir1','bttir2', 'insatcorvislat', 'insatcorvislon'])
 
-
+    #Loading the model and its scaler
     modeladress = r"/data/debasish/cloudetectionmodels/cloudthicknessmodel/xgboostallfeatures910mrmse/xgboostcloudthicknessallfeature910merror.pkl"
     scaleradress = r"/data/debasish/cloudetectionmodels/cloudthicknessmodel/xgboostallfeatures910mrmse/trainscaler.pkl"
 
@@ -103,7 +104,7 @@ def cloudthicknessplotter(insatfilepath,extent=-1):
 
     dfscaled = scaler.transform(dffullfile[['albedo','swirrad','btmir','bttir1','bttir2','insatcorvislat','satelevation']])
 
-    dffullfile['thicknesspred'] = model.predict(dfscaled)
+    dffullfile['thicknesspred'] = model.predict(dfscaled) #Scaling and prediction
 
     dffullfile = dffullfile[dffullfile['thicknesspred'] >= 0] #At some places, the model produces bogus results like negative cloud thickness, I've masked such results out.
     extent = extent
@@ -162,6 +163,5 @@ def cloudthicknessplotter(insatfilepath,extent=-1):
 
 
 #Example given below
-
 cloudthicknessplotter(insatfilepath = r'/data/debasish/insatdata/l1b/2019/2019jan/day01/3RIMG_01JAN2019_0315_L1B_STD_V01R00.h5') 
 #The output of this particular file is given here - https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/collocated-results/cloud-total-thickness/01Jan2019_0315.png
