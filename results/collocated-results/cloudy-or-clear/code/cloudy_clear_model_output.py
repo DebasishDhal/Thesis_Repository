@@ -17,6 +17,7 @@ import matplotlib.colors as mcolors
 cmap = mcolors.ListedColormap(['gray', 'white']) #gray is for clear sky, white is for cloudy sky
 
 def model_output_func(insatfilepath, extent = -1):  
+    #File reading
     insatfile = h5py.File(insatfilepath,'r')
 
     longitudearray = np.array(insatfile['Longitude'])/100
@@ -26,14 +27,11 @@ def model_output_func(insatfilepath, extent = -1):
     longitudearray[longitudearray == fillvalue] = np.nan
 
     insatdate = str(insatfile.attrs['Acquisition_Date'])[2:-1]
-#    print(insatdate)
     insattime = str(insatfile.attrs['Acquisition_Time_in_GMT'])[2:-1]
-#    print(insattime)
     acqstart = str(insatfile.attrs['Acquisition_Start_Time'])[2:-1].split('T')[1]
-#    print(acqstart)
     acqend = str(insatfile.attrs['Acquisition_End_Time'])[2:-1].split('T')[1]
-#    print(acqend)
 
+    #Converting counts to useful quantities like brightness temeprature, radiance and albedo.
     def count2bt(count,lut):
         bt = lut[count]
         return bt
@@ -79,9 +77,11 @@ def model_output_func(insatfilepath, extent = -1):
     satelevationarray[satelevationarray == fillvalue] = np.nan
     print("File read successfully")
 
+    #Downcaling the arrays with more resolution. The two arrays below have a res. of 1km, but others have res. of 4 km, so downscaling is required.
     swirraddown = swirrad[::4,::4]
     albedodown = visalbedo[::4,::4]
-
+    
+    #Dataframe for prediction
     dffullfile = pd.DataFrame({'albedo':albedodown.flatten(),'swirrad':swirraddown.flatten(),
                            'btmir':mirbt.flatten(),'bttir1':tir1bt.flatten(),'bttir2':tir2bt.flatten(),
                            'solarelevation':solarelevationarray.flatten(),'satelevation':satelevationarray.flatten(),
@@ -96,7 +96,8 @@ def model_output_func(insatfilepath, extent = -1):
     dfdayfinal = dfday[['albedo','swirrad','btmir','bttir1','bttir2','solarelevation']]
     dfnightfinal = dfnight[['btmir','bttir1','bttir2','satelevation']]
 
-    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/y79acc8d2msl5mss150est/trainscaler.pkl' #Loading daytime model with its scaler
+    #Loading daytime model with its scaler
+    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/y79acc8d2msl5mss150est/trainscaler.pkl' 
     modeladress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/y79acc8d2msl5mss150est/randomforestclassifier.pkl'
     import joblib
     import pickle
@@ -105,18 +106,17 @@ def model_output_func(insatfilepath, extent = -1):
     model = joblib.load(modeladress)
 
     dfdayscaled = scaler.transform(dfdayfinal)
+    dayprediction = model.predict(dfdayscaled) #Scaling and predicting for daytime
 
-    dayprediction = model.predict(dfdayscaled)
-
-    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/ironlywithsatelevation/trainscaler.pkl' #Loading nighttime model with its scaler
+    #Loading nighttime model with its scaler
+    scaleradress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/ironlywithsatelevation/trainscaler.pkl' 
     modeladress = r'/data/debasish/cloudetectionmodels/cloudyornomodel/rfmodels/ironlywithsatelevation/randomforestclassifier.pkl'
 
     scaler = joblib.load(scaleradress)
     model = joblib.load(modeladress)
 
     dfnightscaled = scaler.transform(dfnightfinal)
-
-    nightprediction = model.predict(dfnightscaled)
+    nightprediction = model.predict(dfnightscaled) #Scaling and predicting for nightime
 
     print("Prediction done")
 
