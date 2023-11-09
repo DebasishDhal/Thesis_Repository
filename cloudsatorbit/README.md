@@ -4,9 +4,9 @@ Let's say we want to see the cloud top height as measured by CloudSat during one
 
 - Groundtrack is the path traced on Earth, by a satellite, as it moves along its orbit.
 
-- The instantaneous scanning area of CloudSat is 1.3 km × 1.7 km. A smaller instantaneous scanning area (or pixel size) it makes our task a lot simpler, as compared to satellites who do sideways scan. We can call it unit area/pixel/profile. The official documentation of CloudSat calls this unit area as "profile"
+- The instantaneous scanning area of CloudSat is 1.3 km × 1.7 km. A smaller instantaneous scanning area (or pixel size) makes our task a lot simpler, as compared to satellites who do sideways scan. We can call it a unit area/pixel/profile. The official documentation of CloudSat calls this unit area as "profile".
 
-- CloudSat completes 14-15 orbits per day. It traces the exact same groundtrack after an interval of 16 days. Thus, continous surveillance over an area is not possible through CoudSat. So we are trading better resolution for lack of continous coverage. The better resolution comes from the fact that CloudSat is just 400 km above the Earth's surface, as compared to 36,000 km for geostationary satellites.
+- CloudSat completes 14-15 orbits per day. It traces the exact same groundtrack after an interval of 16 days. Thus, continous surveillance over an area is not possible through CloudSat. So we are trading better resolution for a lack of continous coverage. The better resolution comes from the fact that CloudSat is just 400 km above the Earth's surface, as compared to 36,000 km for geostationary satellites.
 
 Below is a short description of how the CloudSat orbits around the Earth and how it scans the atmosphere.
 
