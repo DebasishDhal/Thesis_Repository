@@ -69,7 +69,7 @@ The image above is the first version of our collocated dataset. In our final dat
 - The model shows a $r^2$ value of 0.90 with a mean squared error of 0.99km on the test set.
 - In this model, the TIR2 (11.5-12.5 μm) channel carries the highest importance in the model (63.60%).
 - Here, we are not considering the optical depth of clouds, since it was not included in the 2B-CLDCLASS file. We suspect that this contributes the most to the error.
-
+- Personally, I don't think the thickness regression model is a good model. There are so many things that have been not taken into account, like the no. of different cloud layers, the optical density of clouds etc. The resulting maps contain huge areas where the output is negative (presented as white-colored gaps in the map), which likely confirm that it's not a good model.
 <p align="center">
   <img src="results/collocated-results/cloud-total-thickness/01Jan2019_0315.png" alt="Our Total Cloud Thickness map">
 </p>
