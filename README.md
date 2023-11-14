@@ -57,7 +57,7 @@ The image above is the first version of our collocated dataset. In our final dat
 - Only the Infrared channels of INSAT-3DR (dependent only on the Earth's thermal radiation) were used in this model, so that it can be used both during day and night.
 - The model shows a $r^2$ value of 0.95 with a mean squared error of 1.10km in the test set.
 - Using this model, it was found that the average global cloud top height is in the range 2-3 km throughout the year
-- The TIR1 channel (10.3-11.3 μm) of INSAT-3DR has the highest importance in the model (69.05).
+- The TIR1 channel (10.3-11.3 μm) of INSAT-3DR has the highest importance in the model (69.05%).
 <p align="center">
   <img src="results/collocated-results/cloud-top-height/01JAN2019_0615.png" alt="Our Cloud Top Height map">
 </p>
