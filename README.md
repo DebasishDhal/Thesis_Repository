@@ -77,23 +77,24 @@ The image above is the first version of our collocated dataset. In our final dat
 ## CloudSat only results 
 We took all the 2B-CLDCLASS data from CloudSat for the year 2013 and analyzed it. Below are the findings : -
 
-- Oceans are more likely to be cloudy as compared to land. Over the year, around 78% of oceanic pixels and 62.9% of land pixels were found to be cloudy. This inequality in cloud cover was found to be consistent throughout the year. This sounds obvious, however, having a proof is always good.
+- **Cloud cover on land/ocean** : Oceans are more likely to be cloudy as compared to land. Over the year, around 78% of oceanic pixels and 62.9% of land pixels were found to be cloudy. This inequality in cloud cover was found to be consistent throughout the year. This sounds obvious, however, having a proof is always good.
 <p align= "center">
   <img src="results/cloudsat/cloudpresence/year2013whatpercentagelandiscloudy.png" alt="Cloud distribution over land and sea">
 </p>
 
-- The cloud top height (averaged over the globe) is in the order Cirrus ≈ Deep
+- **Height of different types of clouds** : The cloud top height (averaged over the globe) is in the order Cirrus ≈ Deep
 Convective > Altostratus > Cumulus > Altocumulus > Stratocumulus ≈ Cumulus ≈ Stratus cloud. Deep convective clouds are the thickest, and Stratus clouds are the thinnest of all cloud types.
 <p align= "center">
   <img src= "results/cloudsat/cloudheight/fullyearcloudheight.png" alt = "Top height, Base height and Mean thickness of different cloud types">
 </p>
 
-- For most practical purposes, there are at most five distinct cloud layers in any given atmospheric vertical cut-section. More than five distinct cloud layers stacked on upon another are extremely rare in nature. Even five such layers are rare but they do occur in nature.
-- The distribution of different cloud types is a function of latitude. Cirrus is the most dominating type of cloud over the tropics and the Indian region, while Altostratus and Stratocumulus dominate the polar regions. On the other hand, Stratus clouds are almost completely absent over the Indian region.
+- **Distribution of different cloud types** : The distribution of different cloud types is a function of latitude. Cirrus is the most dominating type of cloud over the tropics and the Indian region, while Altostratus and Stratocumulus dominate the polar regions. On the other hand, Stratus clouds are almost completely absent over the Indian region.
 <p align= "center">
    <img src= "results/cloudsat/cloudtypedistribution/fullyearcloudtypemap.png" alt = "Distribution of different cloud types as a function of Latitude">
 </p>
 
+- **Number of distinct cloud layers** : For most practical purposes, there are at most five distinct cloud layers in any given atmospheric vertical cut-section. More than five distinct cloud layers stacked on upon another are extremely rare in nature. Even five such layers are rare but they do occur in nature.
+****************************************************************************************************************************************************************************************************************************
 **Note 1** - The CloudSat orbit scans only a very tiny section of the atmosphere at a time. It has been assumed that taking a large number (a full year) of observed data points will get us an image that is resembles the true nature of earth's atmosphere.
 
 **Note 2** - Visit the folders to get more information from their own readme files.
