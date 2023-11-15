@@ -103,3 +103,9 @@ This folder deals with heights of different types of clouds in the year 2013. 3 
 </p>
 
 ******************************************************************************************************************************************************************************************
+
+<p align="center"> <strong>Change in average top, base height and thickness for different cloud types over the year 2013</strong> </p>
+
+<p align="center">
+  <img src="cloudheoghttimeserieslogscale.png">
+</p>
