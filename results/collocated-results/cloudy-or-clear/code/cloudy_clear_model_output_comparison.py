@@ -174,12 +174,14 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1): #exte
 
     cmap = mcolors.ListedColormap(['gray', 'white'])
     #Plotting
-    plot1 = ax1.scatter(dfpredictioncombined['longitude'][0:extent].values,
-                    dfpredictioncombined['latitude'][0:extent].values,
-                    c = dfpredictioncombined['prediction'][0:extent],
-                    cmap=cmap,
-                    #norm=matplotlib.colors.Normalize(vmin=0, vmax=1),
-                    transform=ccrs.PlateCarree(),s=0.01)
+    plot1 = ax1.scatter(
+                    dfpredictioncombined['longitude'][0:extent].values ,
+                    dfpredictioncombined['latitude'][0:extent].values ,
+                    c = dfpredictioncombined['prediction'][0:extent] ,
+                    cmap=cmap ,
+                    #norm=matplotlib.colors.Normalize(vmin=0, vmax=1) ,
+                    transform=ccrs.PlateCarree(),s=0.01
+                    )
 
     ax1.set_global()
     gl = ax1.gridlines(draw_labels=True)
@@ -197,7 +199,6 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1): #exte
     ax1.set_title('Cloudy/Clear prediction from our {} model \n Date: {},Acquisition time: {}-{} (GMT) \n Cloudy pixels/Clear pixels ratio={:.3f}'.format(type(model).__name__,insatdate,acqstart,acqend,cloudytoclearratioinsat))
 
 
-
     cmk = np.array(cmkfile['CMK'],dtype=np.float32)[0,:,:]
     cmkfill = cmkfile['CMK'].attrs['_FillValue'][0]
     cmk[cmk == cmkfill] = np.nan
@@ -210,9 +211,11 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1): #exte
     cmklon [cmklon == cmklatfill] = np.nan
 
     
-    plot2 = ax2.scatter(cmklon.flatten()[0:extent], cmklat.flatten()[0:extent],
-                   c=cmk.flatten()[0:extent], cmap=cmap,#, norm=norm,
-                   transform=ccrs.PlateCarree(), s=0.01)
+    plot2 = ax2.scatter(
+                   cmklon.flatten()[0:extent], cmklat.flatten()[0:extent] ,
+                   c=cmk.flatten()[0:extent], cmap=cmap,#, norm=norm ,
+                   transform=ccrs.PlateCarree(), s=0.01
+                    )
 
     ax2.set_global()
     gl = ax2.gridlines(draw_labels=True)
@@ -224,11 +227,12 @@ def model_mosdac_combined_plotter(insatfilepath,cmkfilepath, extent = -1): #exte
     cbar2.set_label('0-Clear/Likely Clear                   1 - Cloudy/Likely Cloudy', fontsize=16)    
     #Rotate the tick labels
     cloudytoclearratiocmk = len(cmk[cmk==1])/len(cmk[cmk==0])
+    #Figure title
     ax2.set_title('IMD Cloud Mask using MIR, TIR1, TIR2 channels \n Date: {},Acquisition time: {}-{} (GMT) \n Cloudy pixels/Clear pixels ratio={:.3f}'.format(insatdate_cmk,
                                                                                                                                                                     acqstart_cmk,
                                                                                                                                                                     acqend_cmk,
                                                                                                                                                                     cloudytoclearratiocmk))
-    #Figure title
+
 
     fig.tight_layout()
 

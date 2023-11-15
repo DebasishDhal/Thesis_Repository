@@ -133,11 +133,13 @@ def model_output_func(insatfilepath, extent = -1):
 
     ax = plt.axes(projection=ccrs.PlateCarree())
     
-    plot = plt.scatter(dfpredictioncombined['longitude'][0:extent].values,
-                    dfpredictioncombined['latitude'][0:extent].values,
-                    c = dfpredictioncombined['prediction'][0:extent],
-                    cmap=cmap,norm=matplotlib.colors.Normalize(vmin=0, vmax=1),
-                    transform=ccrs.PlateCarree(),s=0.01)
+    plot = plt.scatter(
+                        dfpredictioncombined['longitude'][0:extent].values ,
+                        dfpredictioncombined['latitude'][0:extent].values ,
+                        c = dfpredictioncombined['prediction'][0:extent] ,
+                        cmap=cmap,norm=matplotlib.colors.Normalize(vmin=0, vmax=1) ,
+                        transform=ccrs.PlateCarree(),s=0.01
+                      )
 
 
     ax.set_global()

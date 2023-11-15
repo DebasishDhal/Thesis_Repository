@@ -4,3 +4,109 @@ Two types of analysis were done to examine the presence of clouds over land and 
 - Out of all the clear pixels, what percentage of clear pixels lie on land, what percentage lie on ocean? Here, we need to take into account the ratio of total land pixels and total oceanic pixels. E.g. Out of 100 clear pixels and 200 cloudy pixels, 60 clear pixels are over ocean while 40 are over land. Similarly, 150 cloudy pixels are over ocean whille 50 are over land.
 
 The photos are named accordingly, month-wise.
+
+
+<p align="center"> <strong>Full year, 2013</strong> </p>
+  
+<div style="display: flex; justify-content: space-between;">
+    <img src="year2013%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="year2013%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+
+********************************************************************************
+
+<p align="center"> <strong>January (2013)</strong> </p>
+  
+<div style="display: flex; justify-content: space-between;">
+    <img src="01jan%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="01jan%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+
+********************************************************************************
+<p align="center"> <strong>February (2013)</strong> </p>
+
+<div style="display: flex; justify-content: space-between;">
+    <img src="02feb%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="02feb%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+********************************************************************************
+<p align="center"> <strong>March (2013)</strong> </p>
+
+<div style="display: flex; justify-content: space-between;">
+    <img src="03mar%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="03mar%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+********************************************************************************
+<p align="center"> <strong>April (2013)</strong> </p>
+<div style="display: flex; justify-content: space-between;">
+    <img src="04apr%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="04apr%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+********************************************************************************
+<p align="center"> <strong>May (2013)</strong> </p>
+<div style="display: flex; justify-content: space-between;">
+    <img src="05may%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="05may%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+********************************************************************************
+<p align="center"> <strong>June (2013)</strong> </p>
+<div style="display: flex; justify-content: space-between;">
+    <img src="06jun%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="06jun%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+********************************************************************************
+<p align="center"> <strong>July (2013)</strong> </p>
+<div style="display: flex; justify-content: space-between;">
+    <img src="07jul%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="07jul%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+********************************************************************************
+<p align="center"> <strong>August (2013)</strong> </p>
+<div style="display: flex; justify-content: space-between;">
+    <img src="08aug%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="08aug%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+********************************************************************************
+<p align="center"> <strong>September (2013)</strong> </p>
+<div style="display: flex; justify-content: space-between;">
+    <img src="09sep%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="09sep%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+********************************************************************************
+<p align="center"> <strong>October (2013)</strong> </p>
+<div style="display: flex; justify-content: space-between;">
+    <img src="10oct%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="10oct%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+********************************************************************************
+<p align="center"> <strong>November (2013)</strong> </p>
+<div style="display: flex; justify-content: space-between;">
+    <img src="11nov%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="11nov%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+********************************************************************************
+<p align="center"> <strong>December (2013)</strong> </p>
+<div style="display: flex; justify-content: space-between;">
+    <img src="12dec%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="12dec%25clearisonland.png" alt="Another Image" width="45%">
+</div>
+
+
+
+
+
+
+
+
