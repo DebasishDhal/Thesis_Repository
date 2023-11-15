@@ -122,13 +122,12 @@ def insatcloudheightprediction(insatfilepath, cmap='jet_r',extent=-1, nightshade
         ax.add_feature(Nightshade(date, alpha=0.5))
     cbar = plt.colorbar(plot,orientation='horizontal',pad=0.039, fraction=0.019, aspect=50)
     cbar.set_label('Cloud Top Height (km)')
-    plt.title('Uppermost cloud layers top height prediction by {} model \n Date: {}, Acquisition time: {}-{} (GMT) \n Mean={:.2f}km,25%={:.2f}km,50%={:.2f}km,75%={:.2f}km,Max={:.2f}km'.format(type(model).__name__,insatdate,acqstart,acqend,
-                                                                                                                                                                                                                                                                                                                                                                                                                    dfirdata['heightprediction'].mean(),
-                                                                                                                                                                                                    dfirdata['heightprediction'].quantile(0.25),
-                                                                                                                                                                                                    dfirdata['heightprediction'].quantile(0.5),
-                                                                                                                                                                                                    dfirdata['heightprediction'].quantile(0.75),
-                                                                                                                                                                                                    dfirdata['heightprediction'].max())
-             )
+    plt.title( 'Uppermost cloud layers top height prediction by {} model \n Date: {}, Acquisition time: {}-{} (GMT) \n Mean={:.2f}km,25%={:.2f}km,50%={:.2f}km,75%={:.2f}km,Max={:.2f}km'.format(type(model).__name__,insatdate,acqstart,acqend,
+    dfirdata['heightprediction'].mean(),
+    dfirdata['heightprediction'].quantile(0.25),
+    dfirdata['heightprediction'].quantile(0.5),
+    dfirdata['heightprediction'].quantile(0.75),
+    dfirdata['heightprediction'].max() ) )
     
     plt.show()
 
