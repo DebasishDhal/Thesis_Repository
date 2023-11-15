@@ -114,11 +114,11 @@ def cloudthicknessplotter(insatfilepath,extent=-1):
     ax = plt.axes(projection = ccrs.PlateCarree())
 
     plot = plt.scatter(
-                    dffullfile['insatcorvislon'].values[0:extent],
-                    dffullfile['insatcorvislat'].values[0:extent],
-                    c=dffullfile['thicknesspred'][0:extent],
-                    cmap = 'jet_r',
-                    s=0.05,
+                    dffullfile['insatcorvislon'].values[0:extent] ,
+                    dffullfile['insatcorvislat'].values[0:extent] ,
+                    c=dffullfile['thicknesspred'][0:extent] ,
+                    cmap = 'jet_r' ,
+                    s=0.05 ,
                     transform=ccrs.PlateCarree()
                     )
 
