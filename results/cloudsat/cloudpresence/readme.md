@@ -16,6 +16,15 @@ The photos are named accordingly, month-wise.
 From the first image, over the full duration of the year 2013, 37.1% of land pixels sampled were found to be clear(non-cloudy), while 62.9% of pixels were found to be cloudy. Similarly, only 21.4% of all the ocean pixels sampled were found to be clear, the rest were found to be cloudy.
 
 From the second image, over the full duraiton of the year 2013, 46.5% of all the clear pixels found, happened to be over land. The rest were over oceans. Similarly, 28.6% of all the cloudy pixels found, happened to over oceans/water-bodies. The rest were over land. Since, the area covered by oceans is greater than land-area, a ratio between total oceanic pixels and total land pixels has been provided to help with normalization.
+
+********************************************************************************
+
+<p align="center"> <strong>Month-wise Time-Series presence of clouds on Land and Ocean (2013)</strong> </p>
+  
+<p align="center">
+  <img src="timeseries2013.png"
+</p>
+
 ********************************************************************************
 
 <p align="center"> <strong>January (2013)</strong> </p>
