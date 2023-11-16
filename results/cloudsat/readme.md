@@ -9,7 +9,7 @@ inequality in cloud cover was found to be consistent throughout the year.
 -  This probability of ”cloudiness” over both land and ocean is at its maximum during May-June-July-August.
 
 <p align= "center">
-  <img src="cloudpresence/images/year2013whatpercentagelandiscloudy.png" alt="Cloud distribution over land and sea">
+  <img src="cloudpresence/year2013whatpercentagelandiscloudy.png" alt="Cloud distribution over land and sea">
 </p>
 
 ## Cloud height distribution
