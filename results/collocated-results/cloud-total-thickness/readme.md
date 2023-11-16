@@ -6,3 +6,37 @@ Below are results for total cloud thickness model.
 - Here, we are not considering the optical depth of clouds, since it was not included in the 2B-CLDCLASS file. We suspect that this contributes the most to the error.
 
 Some maps (for total cloud thickness) produced by our models have been included in this folder. Please note that the blank areas in the maps are those zones where our model is not working properly, i.e. it is predicting negative numbers as cloud thickness. Out of the three models developed by us, we have the least confidence on this model. 
+
+******************************************************************************************************************************************************************************************
+
+<p align="center"> <strong>01/January/2019</strong> </p>
+
+<p align="center">
+  <img src="01Jan2019_0315.png">
+</p>
+
+******************************************************************************************************************************************************************************************
+
+<p align="center"> <strong>01/April/2019</strong> </p>
+
+<p align="center">
+  <img src="01Apr2019_0315.png">
+</p>
+
+******************************************************************************************************************************************************************************************
+
+<p align="center"> <strong>01/August/2019</strong> </p>
+
+<p align="center">
+  <img src="01Aug2019_0315.png">
+</p>
+
+******************************************************************************************************************************************************************************************
+
+<p align="center"> <strong>01/December/2019</strong> </p>
+
+<p align="center">
+  <img src="01Dec2019_0315.png">
+</p>
+
+
