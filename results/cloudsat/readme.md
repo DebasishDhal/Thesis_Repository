@@ -9,7 +9,7 @@ inequality in cloud cover was found to be consistent throughout the year.
 -  This probability of ”cloudiness” over both land and ocean is at its maximum during May-June-July-August.
 
 <p align= "center">
-  <img src="cloudpresence/year2013whatpercentagelandiscloudy.png" alt="Cloud distribution over land and sea">
+  <img src="cloudpresence/images/year2013whatpercentagelandiscloudy.png" alt="Cloud distribution over land and sea">
 </p>
 
 ## Cloud height distribution
@@ -24,8 +24,8 @@ Below are some of the findings of the analysis:
 -  Stratus, stratocumulus, and cumulus clouds have low base and top heights. Their thickness is comparable to that of cirrus clouds as a result.
 
 <p align= "center">
-  <img src= "cloudheight/fullyearcloudheight.png" alt = "Top height, Base height and Mean thickness of different cloud types">
-  <img src= "cloudheight/cloudheoghttimeserieslogscale.png" alt = "Top height, Base height and Mean thickness of different cloud types">
+  <img src= "cloudheight/images/fullyearcloudheight.png" alt = "Top height, Base height and Mean thickness of different cloud types">
+  <img src= "cloudheight/images/cloudheoghttimeserieslogscale.png" alt = "Top height, Base height and Mean thickness of different cloud types">
 </p>
 
 ## Cloud type distribution
@@ -36,7 +36,7 @@ Here as well, 8 distinct cloud types have been considered. Cloud types are distr
 - Deep convective clouds comparatively have very low occurrences and are primarily concentrated in tropical regions.
 
 <p align= "center">
-   <img src= "cloudtypedistribution/fullyearcloudtypemap.png" alt = "Distribution of different cloud types as a function of Latitude">
+   <img src= "cloudtypedistribution/images/fullyearcloudtypemap.png" alt = "Distribution of different cloud types as a function of Latitude">
 </p>
 
 
