@@ -8,3 +8,59 @@ For cloud-top-height, our results are below: -
 In this folder, some of the maps produced by using our models have been attached. Note that if in this case, we come across a clear pixel, the cloud top height will either be 0 or very close to 0. 
 
 In this folder, one can find 4 different maps for a particular day and 3 other maps for different months, for comparison.
+
+***************************************************************************
+
+<p align="center" style="font-size: 50px;"><strong>0015 Hours, Date - 01/January/2019</strong></p>
+
+<p align= "center">
+  <img src="01JAN2019_0015.png" alt="">
+</p>
+
+***************************************************************************
+
+<p align="center"> <strong>0615 Hours, Date - 01/January/2019</strong> </p>
+<p align= "center">
+  <img src="01JAN2019_0615.png" alt="">
+</p>
+
+***************************************************************************
+
+<p align="center"> <strong>1215 Hours, Date - 01/January/2019</strong> </p>
+<p align= "center">
+  <img src="01JAN2019_1215.png" alt="">
+</p>
+
+***************************************************************************
+
+<p align="center"> <strong>1815 Hours, Date - 01/January/2019</strong> </p>
+<p align= "center">
+  <img src="01JAN2019_1815.png" alt="">
+</p>
+
+***************************************************************************
+
+<p align="center"> <strong>0015 Hours, Date - 01/April/2019</strong> </p>
+<p align= "center">
+  <img src="01APR2019_0019.png" alt="">
+</p>
+
+***************************************************************************
+
+<p align="center"> <strong>0015 Hours, Date - 01/August/2019</strong> </p>
+<p align= "center">
+  <img src="01AUG2019_0015.png" alt="">
+</p>
+
+***************************************************************************
+
+<p align="center"> <strong>0015 Hours, Date - 01/December/2019</strong> </p>
+<p align= "center">
+  <img src="01DEC2019_0015.png" alt="">
+</p>
+
+
+
+
+
+

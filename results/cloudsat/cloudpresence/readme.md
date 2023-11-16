@@ -22,7 +22,7 @@ From the second image, over the full duraiton of the year 2013, 46.5% of all the
 <p align="center"> <strong>Month-wise Time-Series presence of clouds on Land and Ocean (2013)</strong> </p>
   
 <p align="center">
-  <img src="timeseries2013.png"
+  <img src="images/timeseries2013.png"
 </p>
 
 ********************************************************************************
@@ -30,8 +30,8 @@ From the second image, over the full duraiton of the year 2013, 46.5% of all the
 <p align="center"> <strong>January (2013)</strong> </p>
   
 <div style="display: flex; justify-content: space-between;">
-    <img src="01jan%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="01jan%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/01jan%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/01jan%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 
@@ -39,79 +39,79 @@ From the second image, over the full duraiton of the year 2013, 46.5% of all the
 <p align="center"> <strong>February (2013)</strong> </p>
 
 <div style="display: flex; justify-content: space-between;">
-    <img src="02feb%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="02feb%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/02feb%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/02feb%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 ********************************************************************************
 <p align="center"> <strong>March (2013)</strong> </p>
 
 <div style="display: flex; justify-content: space-between;">
-    <img src="03mar%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="03mar%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/03mar%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/03mar%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 ********************************************************************************
 <p align="center"> <strong>April (2013)</strong> </p>
 <div style="display: flex; justify-content: space-between;">
-    <img src="04apr%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="04apr%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/04apr%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/04apr%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 ********************************************************************************
 <p align="center"> <strong>May (2013)</strong> </p>
 <div style="display: flex; justify-content: space-between;">
-    <img src="05may%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="05may%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/05may%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/05may%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 ********************************************************************************
 <p align="center"> <strong>June (2013)</strong> </p>
 <div style="display: flex; justify-content: space-between;">
-    <img src="06jun%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="06jun%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/06jun%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/06jun%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 ********************************************************************************
 <p align="center"> <strong>July (2013)</strong> </p>
 <div style="display: flex; justify-content: space-between;">
-    <img src="07jul%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="07jul%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/07jul%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/07jul%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 ********************************************************************************
 <p align="center"> <strong>August (2013)</strong> </p>
 <div style="display: flex; justify-content: space-between;">
-    <img src="08aug%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="08aug%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/08aug%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/08aug%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 ********************************************************************************
 <p align="center"> <strong>September (2013)</strong> </p>
 <div style="display: flex; justify-content: space-between;">
-    <img src="09sep%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="09sep%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/09sep%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/09sep%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 ********************************************************************************
 <p align="center"> <strong>October (2013)</strong> </p>
 <div style="display: flex; justify-content: space-between;">
-    <img src="10oct%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="10oct%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/10oct%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/10oct%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 ********************************************************************************
 <p align="center"> <strong>November (2013)</strong> </p>
 <div style="display: flex; justify-content: space-between;">
-    <img src="11nov%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="11nov%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/11nov%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/11nov%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 ********************************************************************************
 <p align="center"> <strong>December (2013)</strong> </p>
 <div style="display: flex; justify-content: space-between;">
-    <img src="12dec%25landiscloudy.png" alt="Land is Cloudy" width="45%">
-    <img src="12dec%25clearisonland.png" alt="Another Image" width="45%">
+    <img src="images/12dec%25landiscloudy.png" alt="Land is Cloudy" width="45%">
+    <img src="images/12dec%25clearisonland.png" alt="Another Image" width="45%">
 </div>
 
 

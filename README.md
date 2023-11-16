@@ -85,12 +85,12 @@ We took all the 2B-CLDCLASS data from CloudSat for the year 2013 and analyzed it
 - **Height of different types of clouds** : The cloud top height (averaged over the globe) is in the order Cirrus ≈ Deep
 Convective > Altostratus > Cumulus > Altocumulus > Stratocumulus ≈ Cumulus ≈ Stratus cloud. Deep convective clouds are the thickest, and Stratus clouds are the thinnest of all cloud types.
 <p align= "center">
-  <img src= "results/cloudsat/cloudheight/fullyearcloudheight.png" alt = "Top height, Base height and Mean thickness of different cloud types">
+  <img src= "results/cloudsat/cloudheight/images/fullyearcloudheight.png" alt = "Top height, Base height and Mean thickness of different cloud types">
 </p>
 
 - **Distribution of different cloud types** : The distribution of different cloud types is a function of latitude. Cirrus is the most dominating type of cloud over the tropics and the Indian region, while Altostratus and Stratocumulus dominate the polar regions. On the other hand, Stratus clouds are almost completely absent over the Indian region.
 <p align= "center">
-   <img src= "results/cloudsat/cloudtypedistribution/fullyearcloudtypemap.png" alt = "Distribution of different cloud types as a function of Latitude">
+   <img src= "results/cloudsat/cloudtypedistribution/images/fullyearcloudtypemap.png" alt = "Distribution of different cloud types as a function of Latitude">
 </p>
 
 - **Number of distinct cloud layers** : For most practical purposes, there are at most five distinct cloud layers in any given atmospheric vertical cut-section. More than five distinct cloud layers stacked on upon another are extremely rare in nature. Even five such layers are rare but they do occur in nature.
