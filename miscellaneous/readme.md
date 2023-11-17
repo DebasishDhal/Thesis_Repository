@@ -27,3 +27,7 @@ Mostly consists of files and images that were involved in the thesis but were no
   <img src="images/cloud_total_thickness_distribution_oneorbit.png" alt="">
 </p>
 
+- The topographic distribution of all CloudSat pixels, of the year 2013.
+<p align= "center">
+  <img src="images/topographic_distribution.png" alt="">
+</p>
