@@ -1,3 +1,12 @@
+#Input - Folders containing 2b-CLDCLASS of CloudSat satellite.
+#Folder structure assumed - Single-year(2013 in our case) - Month(January,February etc.) - Day_Number (1,2,3....)
+#Most of the time is spent on applying the csat_stats function on all the CloudSat files. IIRC, it was around 10 minutes per month.
+
+#Output is bar plots of presence of clouds over land and ocean, as shown in https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/cloudsat/cloudpresence/year2013%25landiscloudy.png
+#and https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/cloudsat/cloudpresence/year2013%25clearisonland.png
+
+
+#Python 3.10.1. 
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
@@ -17,9 +26,7 @@ import re
 from matplotlib.colors import Normalize, PowerNorm
 from matplotlib.cm import get_cmap
 
-
 #For a single csat file, make a function that takes in a file and returns stats of the cloud layers
-
 def csat_stats(path):
     def oneddata(path,searchdatasetlist):
         if type(path)==str:
@@ -78,6 +85,7 @@ import re
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013jan'
 
 dflist=[]
+print("Month - January")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -111,6 +119,7 @@ import re
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013feb'
 
 dflist=[]
+print("Month - Febuary")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -143,6 +152,7 @@ print(len(dfmonthlycollection))
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013mar'
 
 dflist=[]
+print("Month - March")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -175,6 +185,7 @@ print(len(dfmonthlycollection))
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013apr'
 
 dflist=[]
+print("Month - April")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -207,6 +218,7 @@ print(len(dfmonthlycollection))
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013may'
 
 dflist=[]
+print("Month - May")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -239,6 +251,7 @@ print(len(dfmonthlycollection))
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013jun'
 
 dflist=[]
+print("Month - June")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -271,6 +284,7 @@ print(len(dfmonthlycollection))
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013jul'
 
 dflist=[]
+print("Month - July")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -303,6 +317,7 @@ print(len(dfmonthlycollection))
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013aug'
 
 dflist=[]
+print("Month - August")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -335,6 +350,7 @@ print(len(dfmonthlycollection))
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013sep'
 
 dflist=[]
+print("Month - September")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -367,6 +383,7 @@ print(len(dfmonthlycollection))
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013oct'
 
 dflist=[]
+print("Month - October")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -399,6 +416,7 @@ print(len(dfmonthlycollection))
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013nov'
 
 dflist=[]
+print("Month - November")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -431,6 +449,7 @@ print(len(dfmonthlycollection))
 rootdir='/data/debasish/cloudsatdata/cldclasslidar/2013/2013dec'
 
 dflist=[]
+print("Month - December")
 for subfolder in os.listdir(rootdir):
     if subfolder.endswith('.csv'):
         continue
@@ -460,7 +479,7 @@ dfmonthlycollection.append(df)
 print(len(dfmonthlycollection))
 
 
-#Saving the output dataframes as a dictionary.
+#Saving the output dataframes as a dictionary and then locally into the server
 months = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
 dfmonthlycollectiondict = dict(zip(months, dfmonthlycollection))
 
@@ -476,7 +495,7 @@ print(type(dicttrial))
 #Plotting the cloud presence map for a single month, let's say March
 
 dfcopy = dicttrial['mar'].copy() #Stating the month here
-dfcopy = dfcopy[dfcopy['type']!=9]
+dfcopy = dfcopy[dfcopy['type']!=9] 
 print(len(dfcopy))
 print(sorted(dfcopy['day'].unique()))
 
@@ -486,8 +505,8 @@ idx = dfcopy.groupby(['lat', 'lon', 'orbit'])['type'].idxmax()
 # Select the rows with the maximum 'type' value based on the obtained index
 result = dfcopy.loc[idx]
 
-result = result[result['landseaflag']!=3] #Not considering the coastlines, inland water bodies etc. Just considering the ocean/sea and land.
-result = result[result['landseaflag']!=4]
+result = result[result['landseaflag']!=3] #Not considering the coastlines, inland water bodies etc. Just considering the ocean/sea and land, they're the overwhelming majority anyway.
+result = result[result['landseaflag']!=4] #1- Land, 2- Ocean, 3- Coastlines, 4- Inland water,, 5- Mixed water-land, as per CloudSat conventions
 result = result[result['landseaflag']!=5]
 print(len(result))
 print(sorted(result['day'].unique()))
@@ -497,9 +516,7 @@ result['cloudyornotchar'] = result['cloudyorclear'].map({0:'Clear',1:'Cloudy'})
 
 
 
-import matplotlib.pyplot as plt
-import numpy as np
-
+#Plotting what percentage of land and ocean is occupied by clouds and what percentage is cloud-free.
 clear_land_pixels = len(result[(result['landseaflagchar']=='Land') & (result['cloudyornotchar']=='Clear')]) #Clear pixels on land
 cloudy_land_pixels = len(result[(result['landseaflagchar']=='Land') & (result['cloudyornotchar']=='Cloudy')]) #Cloudy pixels on land
 clear_ocean_pixels = len(result[(result['landseaflagchar']=='Ocean') & (result['cloudyornotchar']=='Clear')]) #Clear pixels on ocean
@@ -576,11 +593,10 @@ plt.show()
 
 
 #Calculate the % of clear pixels that are over land and ocean, and cloudy pixels that are over land and ocean
-
-perofclearthatareoverland = (clear_land_pixels / total_clear_pixels) * 100
-perofclearthatareoceanocean = (clear_ocean_pixels / total_clear_pixels) * 100
-perofcloudythatareoverland = (cloudy_land_pixels / total_cloudy_pixels) * 100
-perofcloudythatareoceanocean = (cloudy_ocean_pixels / total_cloudy_pixels) * 100
+perofclearthatareoverland = (clear_land_pixels / total_clear_pixels) * 100 #Percentage of clear pixels that are over the land
+perofclearthatareoceanocean = (clear_ocean_pixels / total_clear_pixels) * 100 #Percentage of clear pixels that are over the ocean
+perofcloudythatareoverland = (cloudy_land_pixels / total_cloudy_pixels) * 100 #Percentage of cloudy pixels that are over the land
+perofcloudythatareoceanocean = (cloudy_ocean_pixels / total_cloudy_pixels) * 100 #Percentage of cloudy pixels that are over the ocean
 
 fig, ax = plt.subplots()
 bar_width = 0.5
@@ -635,9 +651,6 @@ ax.text(0.5, 0.6, r'$\frac{{Total\ land\ pixels}}{{Total\ ocean\ pixels}} = {:.2
         fontsize=18,
         rotation=90)
 
-
-
-#Make the legendisze bigger
 ax.legend(fontsize=14)
 plt.xticks(fontsize=14)
 plt.tight_layout()
