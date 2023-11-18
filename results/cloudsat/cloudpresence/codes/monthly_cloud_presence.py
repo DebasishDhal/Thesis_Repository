@@ -2,8 +2,8 @@
 #Folder structure assumed - Single-year(2013 in our case) - Month(January,February etc.) - Day_Number (1,2,3....)
 #Most of the time is spent on applying the csat_stats function on all the CloudSat files. IIRC, it was around 10 minutes per month.
 
-#Output is bar plots of presence of clouds over land and ocean, as shown in https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/cloudsat/cloudpresence/year2013%25landiscloudy.png
-#and https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/cloudsat/cloudpresence/year2013%25clearisonland.png
+#Output is bar plots of presence of clouds over land and ocean, as shown in https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/cloudsat/cloudpresence/images/03mar%25clearisonland.png
+#and https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/cloudsat/cloudpresence/images/03mar%25clearisonland.png
 
 
 #Python 3.10.1. 
