@@ -1,4 +1,6 @@
 #Goal - Produce two maps, excatly 6 months apart, to demonstrate that solar elevation indeed depends on the season.
+#Output can be seen here - https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/INSAT-3DR%20only/variation%20in%20solar%20elevation%20with%20season.png
+
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
