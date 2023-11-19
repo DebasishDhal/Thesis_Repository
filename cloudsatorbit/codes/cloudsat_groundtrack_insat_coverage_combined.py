@@ -1,3 +1,7 @@
+#Input - One cloudsat file, and one insat-3dr file.
+#Output - Combined maps of cloudsat groundtrack and insat-3dr coverage area.
+#Example output - https://github.com/DebasishDhal/Thesis_Repository/blob/main/cloudsatorbit/Actual%20photo%20used%20in%20collocation%20INSAT%20cloudsat%20combined.png
+
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
