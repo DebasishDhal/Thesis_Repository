@@ -1,7 +1,7 @@
 #Input - 2B-CLDCLASS file of CloudSat. 
 #Output - A map showing the groundtrack of the CLoudsat orbit. It also has options for many features like timestamps, coastline, directional arrows, base image etc.
 #Example output can be seen here - https://github.com/DebasishDhal/Thesis_Repository/blob/main/cloudsatorbit/cloudsat_groundtrack_with_timestamps.png
-#For reference, check this notebook - https://github.com/DebasishDhal/Thesis_Repository/blob/main/miscellaneous/Cloudsat%20groundtrack.ipynb
+#For reference, check the fifth cell of this notebook - https://github.com/DebasishDhal/Thesis_Repository/blob/main/miscellaneous/csatdatareading.pdf
 
 import numpy as np
 import matplotlib.pyplot as plt
