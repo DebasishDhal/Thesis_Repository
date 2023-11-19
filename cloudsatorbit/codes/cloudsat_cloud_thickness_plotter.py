@@ -1,6 +1,7 @@
 #Input - A 2B-CLDCLASS file.
 #Output - Map showing the total cloud thickness along its orbit
 #Example output - https://github.com/DebasishDhal/Thesis_Repository/blob/main/cloudsatorbit/Total%20cloud%20thickness%20sample%20result.jpg
+#For reference, check this ending part of this notebook- https://github.com/DebasishDhal/Thesis_Repository/blob/main/miscellaneous/cloudsat%20basic%20data%20reading.ipynb
 
 csatpath=r"C:\Users\HP\OneDrive\Desktop\HD5 Collection\CLOUDSAT DATA\CLDCLASS-LIDAR\2019001041234_67528_CS_2B-CLDCLASS-LIDAR_GRANULE_P1_R05_E08_F03.hdf"
 
