@@ -1,4 +1,4 @@
-#Input - One cloudsat file, and one insat-3dr file.
+#Input - One cloudsat file, and one insat-3dr file. Everything else like timestamps and datetimes are automated.
 #Output - Combined maps of cloudsat groundtrack and insat-3dr coverage area.
 #Example output - https://github.com/DebasishDhal/Thesis_Repository/blob/main/cloudsatorbit/Actual%20photo%20used%20in%20collocation%20INSAT%20cloudsat%20combined.png
 
@@ -48,7 +48,7 @@ def groundtrackplotter(pathorfile,c='r', timestamp=True, passedaxis=None, baseim
         return datasetlist
 
     longitude,latitude=oneddata(['Longitude','Latitude'])
-#    fig=plt.figure(figsize=(10,10))
+
     if passedaxis==None:
         ax=plt.axes(projection=ccrs.PlateCarree())
     else:
@@ -56,9 +56,9 @@ def groundtrackplotter(pathorfile,c='r', timestamp=True, passedaxis=None, baseim
     ax.coastlines()
     if baseimage==True:
         ax.stock_img()
+        
     #Make gridlines color black
     ax.gridlines(color='black', alpha=0.5, linestyle='--')
-#    ax.gridlines()
     ax.set_xticks(np.arange(-180, 180, 10), crs=ccrs.PlateCarree())
     ax.set_xticklabels(ax.get_xticks(), rotation=-90)
     ax.set_yticks(np.arange(-90, 90, 30), crs=ccrs.PlateCarree())
@@ -118,10 +118,10 @@ def groundtrackplotter(pathorfile,c='r', timestamp=True, passedaxis=None, baseim
 
 #Make a blank axis, scatter INSAT data, then plot CSat data on top of it
 
-fig=plt.figure(figsize=(10,10))
+fig=plt.figure(figsize=(10,10)) #The logic is, we create a fig and axis first. Plot the INSAT-3DR coverage in it first, then pass it to the cloudsat groundtrackplotter function.
 ax=plt.axes(projection=ccrs.PlateCarree())
 
-#Just plotting the latitude and longitude of INSAT data
+#Just plotting the latitude and longitude of INSAT data. If required, some parameter like brightness temperature can be plotted for INSAT-3DR with 2-3 more lines of code.
 insatfile=h5py.File(insatfilepath,'r')
 latitudewv=np.ma.masked_equal(np.array(insatfile['Latitude_WV']),32767)/100
 longitudewv=np.ma.masked_equal(np.array(insatfile['Longitude_WV']),32767)/100
@@ -138,8 +138,6 @@ acq_date=start_time_obj.strftime("%d/%b/%Y")
 #Put a title on the plot
 plt.title('INSAT-3DR acquisition - '+acq_date+'\n Acquisition time (GMT)->'+start_time_obj.strftime("%H:%M:%S")+'-'+end_time_obj.strftime("%H:%M:%S"),fontsize=15,c='b')
 
-ax=groundtrackplotter(csatfilepath,passedaxis=ax,time_label_count=8,time_label_color='black', time_label_fontsize=15,text="Cloudsat \n groundtrack \n ")
-
-# Ask an input from the user, if input is escape, then exit the program
+ax=groundtrackplotter(csatfilepath,passedaxis=ax,time_label_count=8,time_label_color='black', time_label_fontsize=15,text="Cloudsat \n groundtrack \n ") 
 
 plt.show()
