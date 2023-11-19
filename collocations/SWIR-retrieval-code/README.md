@@ -3,4 +3,9 @@ resolution of 8km (too high). Howver, INSAT-3DR Imager has 6 channels, the other
 been collocated but I forgot about while running my collocation code. So, to append the collocated data from MIR to the collocated dataset, I ran this short script.
 
 To run this script for the full year, I didn't take more than a week. The core of this script is not doing max and min of an array (which was the case during collocation),
-but to using array indices to find some number stored in it, which is significantly faster.
+but to using array indices to find some number stored in it, which is significantly faster. 
+
+Since this collocation is considerably fast, I mae 31 notebooks, each for one day. So notebook no. 2 will contain the SWIR retrieval for all the files, for the 2nd day of all the months.
+Such a notebook is here - https://github.com/DebasishDhal/Thesis_Repository/blob/main/collocations/SWIR-retrieval-code/swir_retrieval_output_day2_all_months.ipynb
+
+
