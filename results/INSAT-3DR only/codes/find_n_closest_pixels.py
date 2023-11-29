@@ -7,7 +7,7 @@ import h5py
 #Logic - We find the closest pixel to a given coordinate, let the offset be x. Now we set that offset x to be infinity. 
 #Now we get the second closest pixel, the offset is again set to infinity. This continues till n closest points are obtained
 
-def findclosest(insatfileorpath ,lat, lon, n=5, channel='tir1', output = 'coordinates'):
+def findnclosest(insatfileorpath ,lat, lon, n=5, channel='tir1', output = 'coordinates'):
 
     if type(insatfileorpath)==str:
         insatfile=h5py.File(insatfileorpath,'r')
@@ -49,7 +49,7 @@ if __name__ == '__main__'
     file=r"C:\Users\HP\OneDrive\Desktop\HD5 Collection\L1B data\INSAT-3DR\3RIMG_01APR2022_0015_L1B_STD_V01R00.h5"
     
     point = [30,77]
-    coords = findclosest(file,point[0],point[1],10,'vis','coordinates')
+    coords = findnclosest(file,point[0],point[1],10,'vis','coordinates') #Get me 10 nearest pixels of the point (lat=30,lon=77) that are present in the VIS channel of this file, and I want the coordinates, not their indices
     
     
     for i in range(len(coords)):
