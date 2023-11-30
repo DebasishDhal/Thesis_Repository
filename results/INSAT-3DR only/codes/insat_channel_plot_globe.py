@@ -1,3 +1,6 @@
+#This program takes in a L1B file adress, channel, parameter as inputs and gives us a plot on the globe of the parameter as output.
+#Example output - https://github.com/DebasishDhal/Thesis_Repository/blob/main/miscellaneous/images/Fani%20BT%20plot.png
+
 import h5py
 import numpy as np
 import math as mt
@@ -9,13 +12,13 @@ from datetime import datetime
 from matplotlib import colors
 from matplotlib.widgets import Cursor
 
-file=r'C:\Users\HP\OneDrive\Desktop\HD5 Collection\3DIMG_03MAY2019_0230_L1B_STD.h5'
+file=r'C:\Users\HP\OneDrive\Desktop\HD5 Collection\3DIMG_03MAY2019_0230_L1B_STD.h5' #Change here
 
 with h5py.File(file) as f:
     
 #Image data retrieval
-    image="IMG_TIR1"  #IMG_TIR1, IMG_TIR2, IMG_VIS, IMG_SWIR, IMG_MIR, IMG_WV are different options
-    parameter = 'temp' #temp or radiance or count are the options
+    image="IMG_TIR1"  #IMG_TIR1, IMG_TIR2, IMG_VIS, IMG_SWIR, IMG_MIR, IMG_WV are different options #Change here
+    parameter = 'temp' #temp or radiance or count are the options #Change here
   
     if parameter in ['temp','Temp','bt,'BT','Brightness_Temperature']:
       parameter = 'temp'
