@@ -5,6 +5,12 @@ Below are results for total cloud thickness model.
 - In this model, the TIR2 (11.5-12.5 μm) channel carries the highest importance in the model (63.60%).
 - Here, we are not considering the optical depth of clouds, since it was not included in the 2B-CLDCLASS file. We suspect that this contributes the most to the error.
 
+<p align= "center">
+  <img src="thicknesscorrelationheatmap.png" alt="">
+</p>
+<p align="center" style="font-size: 50px;"><strong>Correlation (Pearson) map of cloud total thickness with Albedo, SWIR Radiance, MIR, TIR1 and TIR2 Brightness Temperatures</strong></p>
+
+
 Some maps (for total cloud thickness) produced by our models have been included in this folder. Please note that the blank areas in the maps are those zones where our model is not working properly, i.e. it is predicting negative numbers as cloud thickness. Out of the three models developed by us, we have the least confidence on this model. 
 
 ******************************************************************************************************************************************************************************************
