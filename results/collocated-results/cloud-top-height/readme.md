@@ -5,7 +5,13 @@ For cloud-top-height, our results are below: -
 - Using this model, it was found that the average global cloud top height is in the range 2-3 km throughout the year.
 - The TIR1 channel (10.3-11.3 μm) of INSAT-3DR has the highest importance in the model (69.05).
 
-In this folder, some of the maps produced by using our models have been attached. Note that if in this case, we come across a clear pixel, the cloud top height will either be 0 or very close to 0. 
+<p align= "center">
+  <img src="cloudtopheightheatmappearson.png" alt="">
+</p>
+<p align="center" style="font-size: 50px;"><strong>Correlation (Pearson) map of cloud top height with Albedo, SWIR Radiance, MIR, TIR1 and TIR2 Brightness Temperatures</strong></p>
+
+
+In this section, some of the maps produced by using our models have been attached. Note that if in this case, we come across a clear pixel, the cloud top height will either be 0 or very close to 0. 
 
 In this folder, one can find 4 different maps for a particular day and 3 other maps for different months, for comparison.
 
