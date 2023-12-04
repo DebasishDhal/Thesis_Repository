@@ -1,9 +1,13 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import matplotlib.patches as mpatches
+
 topheightdf = pd.DataFrame()
 cloud_types = ['Cirrus','Altostratus','Altocumulus','Stratus','Stratocumulus','Cumulus','Nimbostratus','Deep Convective']
 
+
 jantop = [12.74,7.8,4.95,1.41,2.04,1.68,6.88,12.66]
 janthick = [1.55,3.06,1.38,0.53,0.83,0.69,5.59,11.84]
-assert len(jantop) == len(janthick)
 janbottom = [jantop[i] - janthick[i] for i in range(len(jantop))]
 
 febtop = [12.44,7.51,4.91,1.43,2.06,1.66,6.63,12.56]
@@ -55,9 +59,7 @@ decbottom = [dectop[i] - decthick[i] for i in range(len(dectop))]
 fig,ax = plt.figure(figsize=(10,8)),plt.gca()
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November','December']
-
 colorcode = ['red', 'blue', 'green', 'orange', 'purple', 'yellow', 'pink', 'black']
-
 linestylecode = ['solid', 'dashed', 'dashdot']
 
 for i in range(8):
@@ -68,18 +70,12 @@ for i in range(8):
     ax.plot(months, [janthick[i], febthick[i], marthick[i], aprthick[i], maythick[i], junthick[i], julthick[i], augthick[i], septhick[i], octthick[i], novthick[i], decthick[i]],
             color=colorcode[i], linestyle = linestylecode[2]);
 
-#Rotating the x-labels
 plt.xticks(rotation=45);
 plt.xlabel('Month', fontsize= 16);
-
-#Reducing the padding between the x-axis and the xticklabels
 plt.ylabel('Height (km) (Log scale)', fontsize = 16);
-#Increase size of xticklabels
 plt.tick_params(axis='x', labelsize=14)
-#Set x-axis to log
 plt.yscale('log');
 
-import matplotlib.patches as mpatches
 legend_patches = []
 for i in range(len(cloud_types)):
     patch = mpatches.Patch(color=colorcode[i], label=cloud_types[i])
@@ -95,24 +91,21 @@ box_y = 0.52 # Y-coordinate of the box
 box_width = 0.17  # Width of the box
 box_height = 0.18  # Height of the box
 box_color = 'none'  # Color of the box
-
-
-#Keeping the box transparent
-
 box_linewidth = 1  # Linewidth of the box
 box_edgecolor = 'black'  # Edge color of the box
-# Draw the box
+
+# Drawing the box
 box = mpatches.Rectangle((box_x, box_y), box_width, box_height, facecolor=box_color, edgecolor=box_edgecolor,
                          linewidth=box_linewidth, transform=fig.transFigure)
 fig.add_artist(box)
 
-
+# Adding text into the box
 text = 'Linestyle-Height\n\nSolid-Top\nDashed-Bottom\nDashdot-Thickness'
 
 ax.text(11.8, 3.5, text, fontsize=12,verticalalignment='top')
-
 plt.yticks([0.5,1,2,3,4,5,6,7,8,9,10,11,12], ['0.5','1','2', '3','4','5','6','7','8','9','10','11','12']);
 
+# Hiding the axis and display the plot
 plt.tight_layout()
 plt.title('Cloud average top, bottom height and thickness over months (2013)', fontsize = 16);
 plt.show()
