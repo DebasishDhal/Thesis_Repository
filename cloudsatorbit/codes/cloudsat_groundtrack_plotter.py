@@ -98,4 +98,10 @@ def groundtrackplotter(pathorfile,c='r', timestamp=True, passedaxis=None, baseim
 fig=plt.figure(figsize=(10,10))
 ax=plt.axes(projection=ccrs.PlateCarree())
 # ax.scatter(0,0,transform=ccrs.PlateCarree(),c='r',s=10.51,linewidths=0.51)
-ax=groundtrackplotter(path2,passedaxis=ax,time_label_count=5, text="Orbit")
+
+path1 = 'Path to CloudSat file'
+ax=groundtrackplotter(path1,passedaxis=ax,time_label_count=5, text="test2")
+
+#More groundtracks can be easily added by simply passing the same 
+path2 = 'Path to second CloudSat file'
+ax = groundtrackplotter(path2,passedaxis=ax,time_label_count=5,text="test2"
