@@ -12,7 +12,7 @@ Mostly consists of files and images that were involved in the thesis but were no
 
 - Latitude map (Independent of satellite type, and time of observation)
 <p align= "center">
-  <img src="images/latitude_map.png" alt="">
+  <img src="images/latitude_map_new.png" alt="">
 </p>
 
 - Longitude map (Independent of satellite type, and time of observation)
