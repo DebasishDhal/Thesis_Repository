@@ -1,6 +1,3 @@
-#Goal - Produce two maps, excatly 6 months apart, to demonstrate that solar elevation indeed depends on the season.
-#Output can be seen here - https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/INSAT-3DR%20only/variation%20in%20solar%20elevation%20with%20season.png
-
 import numpy as np
 import matplotlib.pyplot as plt
 import h5py
@@ -12,14 +9,14 @@ from matplotlib.lines import Line2D
 import pandas as pd
 import time
 import datetime
-from pyhdf.SD import SD, SDC
-from pyhdf import HDF, VS, V
+# from pyhdf.SD import SD, SDC
+# from pyhdf import HDF, VS, V
 import os
 from cartopy.feature.nightshade import Nightshade
 
-#Any two files that are exactly 6 months apart should work. This combination below produced the best aesthetics.
-insatpath1 = r'/data/debasish/insatdata/l1b/2019/2019jan/day01/3RIMG_01JAN2019_0345_L1B_STD_V01R00.h5'
-insatpath2 = r'/data/debasish/insatdata/l1b/2019/jul2019_day1_std/3RIMG_01JUL2019_0345_L1B_STD_V01R00.h5'
+#Any two files that are exactly 6 months apart should work.
+insatpath1 = r"C:\Users\HP\OneDrive\Desktop\HD5 Collection\L1B data\INSAT-3DR\2019 Jan\3RIMG_01JAN2019_0345_L1B_STD_V01R00.h5"
+insatpath2 = r"C:\Users\HP\OneDrive\Desktop\HD5 Collection\L1B data\INSAT-3DR\3RIMG_01JUN2019_0345_L1B_STD_V01R00.h5"
 
 insatfile1 = h5py.File(insatpath1, 'r')
 insatfile2 = h5py.File(insatpath2, 'r')
@@ -49,11 +46,19 @@ solarelevation1 = np.array(insatfile1['Sun_Elevation'],dtype=float)
 solarelevation_fill1 = insatfile1['Sun_Elevation'].attrs['_FillValue'][0]
 solarelevation1[solarelevation1==solarelevation_fill1] = np.nan
 solarelevation1 = solarelevation1/100
+solarazimuth1 = np.array(insatfile1['Sun_Azimuth'],dtype=float)
+solarazimuth_fill = insatfile1['Sun_Azimuth'].attrs['_FillValue'][0]
+solarazimuth1[solarazimuth1==solarazimuth_fill] = np.nan
+solarazimuth1 = solarazimuth1/100
 
 solarelevation2 = np.array(insatfile2['Sun_Elevation'],dtype=float)
 solarelevation_fill2 = insatfile2['Sun_Elevation'].attrs['_FillValue'][0]
 solarelevation2[solarelevation2==solarelevation_fill2] = np.nan
 solarelevation2 = solarelevation2/100
+solarazimuth2 = np.array(insatfile2['Sun_Azimuth'],dtype=float)
+solarazimuth2_fill = insatfile2['Sun_Azimuth'].attrs['_FillValue'][0]
+solarazimuth2[solarazimuth2==solarazimuth2_fill] = np.nan
+solarazimuth2 = solarazimuth2/100
 
 date1 = insatfile1.attrs['Acquisition_Date'].decode('utf-8')
 acq_start1 = insatfile1.attrs['Acquisition_Start_Time'].decode('utf-8')[-8:]
@@ -88,16 +93,13 @@ ax2 = plt.subplot(2,1,2, projection = ccrs.PlateCarree())
 extent = -1
 
 plot1 = ax1.scatter(lon1.flatten()[0:extent], lat1.flatten()[0:extent], 
-        c = solarelevation1.flatten()[0:extent], cmap = 'jet', s = 0.1, 
+        c = solarazimuth1.flatten()[0:extent], cmap = 'jet', s = 0.1, 
         transform = ccrs.PlateCarree())
 ax1.set_global()
 gl = ax1.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, 
                     linewidth=1, color='black', alpha=0.5, linestyle='--')
-# gl.xlabels_top = False
-# gl.ylabels_right = False #These are deprecated now (Python 3.10.1, matplotlib == 3.8.2, Dec 2023)
 gl.top_labels = False
 gl.right_labels = False
-
 date1_datetime  = datetime.datetime(year1, month_no1, day1, hour1, minute1, second1)
 ax1.add_feature(Nightshade(date1_datetime, alpha=0.5))
 ax1.coastlines()
@@ -108,18 +110,18 @@ cbar1 = plt.colorbar(plot1,
                      aspect=50,
                      shrink = 0.815,
                      ax=ax1)
-cbar1.set_label('Solar elevation angle (deg.)', fontsize=16)
+cbar1.set_label('Solar azimuth angle (deg.)', fontsize=16)
 ax1.set_title('Date : {},Time interval : {}-{} GMT'.format(date1, acq_start1, acq_end1), fontsize=16)
 
 
 plot2 = ax2.scatter(lon2.flatten()[0:extent], lat2.flatten()[0:extent], 
-        c = solarelevation2.flatten()[0:extent], cmap = 'jet', s = 0.1, 
+        c = solarazimuth2.flatten()[0:extent], cmap = 'jet', s = 0.1, 
         transform = ccrs.PlateCarree())
 ax2.set_global()
 gl = ax2.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, 
                     linewidth=1, color='black', alpha=0.5, linestyle='--')
-gl.xlabels_top = False
-gl.ylabels_right = False
+gl.top_labels = False
+gl.right_labels = False
 date2_datetime  = datetime.datetime(year2, month_no2, day2, hour2, minute2, second2)
 ax2.add_feature(Nightshade(date2_datetime, alpha=0.5))
 ax2.coastlines()
@@ -129,10 +131,10 @@ cbar2 = plt.colorbar(plot2, orientation = 'vertical',
                      aspect=50,
                      shrink = 0.815,
                      ax=ax2)
-cbar2.set_label('Solar elevation angle (deg.)', fontsize=16)
+cbar2.set_label('Solar azimuth angle (deg.)', fontsize=16)
 ax2.set_title('Date : {},Time interval : {}-{} GMT'.format(date2, acq_start2, acq_end2), fontsize=16)
 
-fig.suptitle('Seasonal variation in solar elevation angle', fontsize=20, fontweight = 'bold',
+fig.suptitle('Seasonal variation in solar azimuth angle', fontsize=20, fontweight = 'bold',
              y=0.94, x=0.45)
 plt.tight_layout()
 plt.show()
