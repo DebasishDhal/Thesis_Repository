@@ -10,6 +10,18 @@ Mostly consists of files and images that were involved in the thesis but were no
   <img src="insat3dr_satellite_azimuth_angle.png" alt="">
 </p>
 
+- Latitude map (Independent of satellite type, and time of observation)
+<p align= "center">
+  <img src="images/latitude_map.png" alt="">
+</p>
+
+- Longitude map (Independent of satellite type, and time of observation)
+  
+<p align="center">
+  <img src="images/longitude_map.png" alt="">
+</p>
+
+  
 - Distribution of cloud top height and cloud bottom height. Time period - Whole year of 2013. Region - Global.
 
 <p align= "center">
