@@ -12,6 +12,11 @@ The same logic has also been used to collocate Cloud-Mask produced by Indian Met
   <img src="../cloudsatorbit/Actual photo used in collocation INSAT cloudsat combined.png" alt="">
 </p>
 
+<p align= "center">
+  <a href="https://github.com/DebasishDhal/Thesis_Repository/blob/minor-patch/cloudsatorbit/codes/cloudsat_groundtrack_insat_coverage_combined.py">Code for this image</a>
+</p>
+
+
 Analyzing all these maps is laborious. Hence, this process of choosing the correct combination of CloufSat and INSAT-3DR file has been automated in the single day code. It takes all CloudSat and INSAT-3DR files for one day and does the collocation for all the combinations that match the collocation criteria, i.e. there must be a temporal and spatial overlap between both the files.
 
 Below is the flowchart of the collocation code.
