@@ -1,10 +1,16 @@
-# Variation in Solar elevation angle, exactly six months apart ([Code](https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/INSAT-3DR%20only/codes/solar_elevation_angle.py))
+# Variation in Solar elevation angle and Solar azimuth angle, exactly six months apart ([Code1](https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/INSAT-3DR%20only/codes/solar_elevation_angle.py), [Code2](https://github.com/DebasishDhal/Thesis_Repository/blob/minor-patch/results/INSAT-3DR%20only/codes/solar_azimuth_angle.py))
 
+- Solar elevation angle is 90° when the sun is overhead. It is 0° during sunrise and sunset, and negative when the sun is below the horizon.
 - The two pictures are taken at an interval of exactly six months, at the same GMT. One is in the Summer Solstice, another in the Winter Solstice.
--  It can be observed that the solar elevation angles in the two images are complementary to each other, and so are the day-night divider lines.
+- It can be observed that the solar elevation angles in the two images are complementary to each other, and so are the day-night divider lines.
 
 <p align= "center">
   <img src="variation in solar elevation with season.png" alt="Variation in solar elevation angle within a span of six months">
+</p>
+
+- For the azimuth map, the sun is centered in different hemispheres in different seasons, which is as expected.
+<p align="center">
+  <img src="variation_in_solar_azimuth_with_season.png" alt=""Variation in solar azimuth angle within a span of six months""> 
 </p>
 
 # Dependency of VIS (Visible) and SWIR (Short-Wave Infrared) channels on sunlight ([Code](https://github.com/DebasishDhal/Thesis_Repository/blob/main/results/INSAT-3DR%20only/codes/insat_channel_plot.py))
