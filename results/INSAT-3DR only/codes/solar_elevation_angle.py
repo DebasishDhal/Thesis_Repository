@@ -93,8 +93,11 @@ plot1 = ax1.scatter(lon1.flatten()[0:extent], lat1.flatten()[0:extent],
 ax1.set_global()
 gl = ax1.gridlines(crs=ccrs.PlateCarree(), draw_labels=True, 
                     linewidth=1, color='black', alpha=0.5, linestyle='--')
-gl.xlabels_top = False
-gl.ylabels_right = False
+# gl.xlabels_top = False
+# gl.ylabels_right = False #These are deprecated now (Python 3.10.1, matplotlib == 3.8.2, Dec 2023)
+gl.top_labels = False
+gl.right_labels = False
+
 date1_datetime  = datetime.datetime(year1, month_no1, day1, hour1, minute1, second1)
 ax1.add_feature(Nightshade(date1_datetime, alpha=0.5))
 ax1.coastlines()
