@@ -1,4 +1,4 @@
-#Problem arises while installing cartopy. It's an absolute mess. I have no idea why the bugs are not removed yet. You can't just install in colab, vs code by using simply pip install. #The correct use is to directly download the wheels of cartopy. Unfortunately this library is indispensable.
+#Problem may arise while installing cartopy. I suggest making a new virtual env and installing cartopy first. 
 #2-3 of these libraries are not available in pip, I used conda to download them and it worked. IIRC, the global-land-mask is one such case.
 #Not all of these libraries were required for my work, for example, I didn't need to use scrapping libs like beautifulsoup4.
 
