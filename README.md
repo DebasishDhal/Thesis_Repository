@@ -7,18 +7,19 @@ This repository consists of codes written by me for my MSc thesis work titled "*
 ### 2) To study properties and distribution of clouds based on the CloudSat data alone.
 
 ## Motivation
-INSAT-3DR produces full-disk image of the Indian side of the globe, every half an hour with a resolution of 1km, 4km and 8km, depending on the channel [(example)](https://github.com/DebasishDhal/Thesis_Repository/blob/main/miscellaneous/images/Allchannelsplot.png). However, this is the just the radiometric data. In order to retrieve cloud-properties from it, the radiometric data needs to be processed. If we are succesful in retrieving cloud-properties from INSAT-3DR radiometric data, we can have new full-disk maps of cloud-properties every half an hour. By cloud-properties , I refer to Cloudy/Clear classification, Cloud top height and Cloud total thickness regression. Cloud top height is the top height of the uppermost cloud layer and cloud total thickness is the sum of thickness of all cloud layers present over an area. Here, the unit size of area or the pixel size is 4  km × 4 km for all the three cloud-properties.
+INSAT-3DR is an ISRO-operated geostationary satellite. Its IMAGER instrument produces full-disk image of the Indian side of the globe, every half an hour with a resolution of 1km, 4km and 8km, depending on the channel [(example)](https://github.com/DebasishDhal/Thesis_Repository/blob/main/miscellaneous/images/Allchannelsplot.png). However, this is the just the radiometric data. In order to retrieve cloud-properties from it, the radiometric data needs to be processed. If we are succesful in retrieving cloud-properties from INSAT-3DR radiometric data, we can have new full-disk maps of cloud-properties every half an hour. By cloud-properties, I refer to Cloudy/Clear classification, Cloud top height and Cloud total thickness regression. Cloud top height is the top height of the uppermost cloud layer and cloud total thickness is the sum of thickness of all cloud layers present over an area. Here, the unit size of area or the pixel size is 4  km × 4 km for all the three cloud-properties.
 
 ## Challenge - How to retrieve cloud properties from radiometric data?
 INSAT-3DR, like all satellites that employ passive scanning, does not measure any meteorological parameter directly. The emitted/reflected photons incident upon its sensors are measured in terms of counts. It is our job to retrieve useful meteorological properties from the radiometric readings(or counts). 
 
 ## Solution
 CloudSat, a NASA-operated polar satellite dedicated for observations of clouds, measures all the cloud-properties that we want to retrieve. This makes our task simple and complicated at the same time, but atleast that's a start. CloudSat is a polar satellite, it means CloudSat orbits around earth, scanning the section of the atmosphere just below it (instantenous pixel size is approximately 1.3 km × 1.7 km). So, we have full-disk radiometric data from INSAT-3DR and cloud-related data from CloudSat concentrated on thin lines along the CloudSat orbits. This is shown in the image below, where for a given day, all the CloudSat orbits are shown superimposed with the INSAT-3DR coverage area.
+
 <p align="center">
   <img src="cloudsatorbit/Multi orbit groundtrack with INSAT3DR.png" alt="Multiple CloudSat orbits superimposed on INSAT-3DR coverage area.">
 </p>
 
-The cloud-related data from CloudSat was collocated against the radiometric readings from INSAT-3DR.  Collocation is defined as using two or more satellites to get complimentary data of a given place, at a given time. This gives us a dataset which maps the radiometric data to the cloud-properties. For example, a cloudy pixel will have a smaller brightness temperature and higher albedo, as compared to a clear pixel. The resulting combined data was processed and fed into ML algorigthms (XGBoost and Random Forest), to produce models that can predict cloudy/clear classificaiton, cloud top height and cloud total height from INSAT-3DR radiometric data alone.
+The cloud-related data from CloudSat is collocated against the radiometric readings from INSAT-3DR.  Collocation is defined as using two or more satellites to get complimentary data of a given place, at a given time. This gives us a dataset which maps the radiometric data to the cloud-properties. For example, a cloudy pixel will have a smaller brightness temperature and higher albedo, as compared to a clear pixel. The resulting combined data was processed and fed into ML algorigthms (XGBoost and Random Forest), to produce models that can predict cloudy/clear classificaiton, cloud top height and cloud total height from INSAT-3DR radiometric data alone.
 
 ## Collocation process
 Here the goal is to collocate pixels from both satellites that are spatially and temporally close by, and collect radiometric data of the pixels from INSAT-3DR file and cloud-related data from the CloudSat file. Collocations folder contains collocation codes for INSAT-3DR 1B-IMAGER and CloudSat 2B-CLDCLASS data. I've included codes to collocate one file at a time and files of entire day at a time (fully automated). In the examples, there's an example notebook containing 3 cells. Each contains code for single file collocation. In the first 2 cells, the permission to collocate was denied, while it was granted in the 3rd cell. This process has been fully automated in the fulldaycollocation code. For an entire day it takes around 40-120 hours (at least on our CPU server). Visit the [collocation folder](https://github.com/DebasishDhal/Thesis_Repository/tree/main/collocations) for more information.
@@ -58,10 +59,10 @@ The image above is the first version of our collocated dataset. In our final dat
 - The model shows a $r^2$ value of 0.95 with a mean squared error of 1.10km in the test set.
 - Using this model, it was found that the average global cloud top height is in the range 2-3 km throughout the year
 - The TIR1 channel (10.3-11.3 μm) of INSAT-3DR has the highest importance in the model (69.05%).
+
 <p align="center">
   <img src="results/collocated-results/cloud-top-height/01JAN2019_0615.png" alt="Our Cloud Top Height map">
 </p>
-
 
 ## Cloud total thickness Regression Model
 
@@ -78,6 +79,7 @@ The image above is the first version of our collocated dataset. In our final dat
 We took all the 2B-CLDCLASS data from CloudSat for the year 2013 and analyzed it. Below are the findings : -
 
 - **Cloud cover on land/ocean** : Oceans are more likely to be cloudy as compared to land. Over the year, around 78% of oceanic pixels and 62.9% of land pixels were found to be cloudy. This inequality in cloud cover was found to be consistent throughout the year. This sounds obvious, however, having a proof is always good.
+
 <p align= "center">
   <img src="results/cloudsat/cloudpresence/year2013whatpercentagelandiscloudy.png" alt="Cloud distribution over land and sea">
 </p>
@@ -104,7 +106,3 @@ Thanks to [MOSDAC](https://www.mosdac.gov.in/) and [CLOUDSAT](https://www.clouds
 - Python, Fortran
 - Machine Learning
 - Linux, Remote Server
-
-
-
-
