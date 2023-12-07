@@ -21,15 +21,21 @@ For comparison, four maps comparing our cloud-mask with IMD's cloud-mask has bee
   <img src="01jan2019_0015_modeloutputcmkboth.png" alt="">
 </p>
 
+***************************************************************************
+
 - 0065 Hours, Date - 01/Jan/2019
 <p align= "center">
   <img src="01jan2019_0615_modeloutputcmkboth.png" alt="">
 </p>
 
+***************************************************************************
+
 - 1215 Hours, Date - 01/Jan/2019
 <p align= "center">
   <img src="01jan2019_1215_modeloutputcmkboth.png" alt="">
 </p>
+
+***************************************************************************
 
 - 1815 Hours, Date - 01/Jan/2019
 <p align= "center">
