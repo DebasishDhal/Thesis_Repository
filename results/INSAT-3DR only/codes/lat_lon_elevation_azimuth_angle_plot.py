@@ -18,7 +18,7 @@ insatfile = h5py.File(inastfilepath,'r')
 print(insatfile.keys())
 
 #Reading latitude and longitude arrays
-latitudearray = np.array(insatfile1['Latitude'],dtype=float)
+latitudearray = np.array(insatfile['Latitude'],dtype=float)
 lat_fill = insatfile['Latitude'].attrs['_FillValue'][0]
 latitudearray[latitudearray==lat_fill] = np.nan
 latitudearray = latitudearray/100
