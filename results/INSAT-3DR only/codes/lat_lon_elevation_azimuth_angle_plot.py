@@ -46,7 +46,7 @@ satelevation = satelevation/100
 satazimuth = np.array(insatfile['Sat_Azimuth'],dtype=float)
 satazimuth_fill = insatfile['Sat_Azimuth'].attrs['_FillValue'][0]
 satazimuth[satazimuth==satazimuth_fill] = np.nan
-satazimuth = satrazimuth/100
+satazimuth = satazimuth/100
 
 #Reading datetime information
 
