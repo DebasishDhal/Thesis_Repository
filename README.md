@@ -39,6 +39,7 @@ The final dataset looks something like this: -
 
 The image above is the first version of our collocated dataset. In our final dataset, we have added more features into it, like details of individual cloud layers, albedo, short wave infrared radiance readings etc.
 
+**The entire collocated data can be found here : - https://huggingface.co/datasets/DebasishDhal99/cloud-vs-temperature-data**
 
 
 ## Cloud/Clear Classification Model
